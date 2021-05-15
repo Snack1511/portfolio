@@ -1,0 +1,6 @@
+﻿  6-4.c
+F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\6-4.c(16,26): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\6-4.c(20,32): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\6-4.c(24,33): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\6-4.c(28,48): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Code_Practice.vcxproj -> F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Debug\Code_Practice.exe

@@ -1,0 +1,13 @@
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.exe
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.deps.json
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.runtimeconfig.json
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.runtimeconfig.dev.json
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.dll
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\bin\Debug\netcoreapp3.1\RemoveMetaFile.pdb
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.csprojAssemblyReference.cache
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.AssemblyInfoInputs.cache
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.AssemblyInfo.cs
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.csproj.CoreCompileInputs.cache
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.dll
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.pdb
+C:\Users\cmj69\Desktop\RemoveMetaFile\RemoveMetaFile\obj\Debug\netcoreapp3.1\RemoveMetaFile.genruntimeconfig.cache
