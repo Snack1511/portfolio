@@ -11,22 +11,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    
+    bool[] bMapChack;
     bool bRoundCheckflg = false;
-    int Leaveplayer;
-    List<Player_Cal> Players = new List<Player_Cal>();
+    bool bScoreboardCheckflg = false;
     Vector3[] pos = {
         new Vector3(-Dist, 3, 0), new Vector3(Dist, 3, 0), new Vector3(0, 3, -Dist), new Vector3(0, 3, Dist)
     };
     GameObject Winner;
     GameObject MenuPanel;
+    GameObject ScoreboardPanel;
     PlayerInput[] InputPlayers;
+    PlayerSet[] PlayerDatas;
+    List<Player_Cal> PlayersCalculates = new List<Player_Cal>();
     
     public const float Dist = 20;
+    public int Leaveplayer;
+    public int RoundNum;
     public bool Gamestartflg;
     public bool GamePauseflg;
     public bool Tutorialchkflg;
-    public int RoundNum = 2;
     public static GameManager GM;
     public static SelectData[] Selected = new SelectData[4];
     //List<PlayerInput> P_Input;
@@ -62,10 +65,11 @@ public class GameManager : MonoBehaviour
             GameEndCheck();
             RoundChange();
         }*/
-        RoundEndCheck();
     }
     void LateUpdate()
     {
+
+        RoundEndCheck();
         if (GamePauseflg)
         {
             StartCoroutine("MenuOpen");
@@ -77,7 +81,8 @@ public class GameManager : MonoBehaviour
     }*/
     void InitGameMgr()
     {
-        
+        RoundNum = 0;
+        bMapChack = new bool[5];
         Selected[0] = new SelectData(null, 0, "Keyboard", InputSystem.devices[0], "Ch_roundFlask");
         Selected[1] = new SelectData(null, 1, "XInputControllerWindows", InputSystem.devices[2], "Ch_roundFlask");//디버깅용
 
@@ -85,7 +90,9 @@ public class GameManager : MonoBehaviour
         GamePauseflg = true;
         Tutorialchkflg = false;
         InputPlayers = new PlayerInput[4];
+        PlayerDatas = new PlayerSet[4];
         MenuPanel = transform.GetChild(0).gameObject;
+        ScoreboardPanel = transform.GetChild(1).gameObject;
         for (int i = 0; i < Selected.Length; i++)
         {
           if (Selected[i].IsActive())
@@ -93,44 +100,87 @@ public class GameManager : MonoBehaviour
                 InputPlayers[i] = PlayerInput.Instantiate(Resources.Load<GameObject>("Prefabs/PlayerObj"), Selected[i].GetIndex(), GetScheme(Selected[i].GetDVName()), -1, Selected[i].GetInputDv());
                 InputPlayers[i].GetComponent<PlayerSet>().ModelName = Selected[i].GetName();
                 InputPlayers[i].GetComponent<PlayerSet>().ColorNum = Selected[i].GetIndex();
+                PlayerDatas[i] = InputPlayers[i].GetComponent<PlayerSet>();
+                PlayersCalculates.Add(InputPlayers[i].GetComponent<Player_Cal>());
                 DontDestroyOnLoad(InputPlayers[i].gameObject);
 
             }
         }
-        for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
+        
+        /*for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
-            Players.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<Player_Cal>());
-
-        }
+            //PlayersCalculates.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<Player_Cal>());
+            PlayersCalculates[i] = GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<Player_Cal>();
+        }*/
         ResetGameMgr();
     }
     void ResetGameMgr()
     {
         MenuPanel.SetActive(false);
 
-        for (int i = 0; i < Players.Count; i++)
+        for (int i = 0; i < PlayersCalculates.Count; i++)
         {
-            Debug.Log("d");
-            Players[i].transform.position = pos[i];
-            Players[i].GetComponent<PlayerSet>().ResetData();
-            Players[i].gameObject.SetActive(true);
+            //Debug.Log(PlayersCalculates[i]);
+            if (PlayersCalculates[i] != null)
+            {
+                PlayersCalculates[i].gameObject.transform.position = pos[i];
+                PlayersCalculates[i].GetComponent<PlayerSet>().ResetData();
+                PlayersCalculates[i].gameObject.SetActive(true);
+            }
         }
-        Leaveplayer = Players.Count;
-        RoundEndCheck();
+        Leaveplayer = 0;
+        //RoundEndCheck();
         bRoundCheckflg = false;
         
     }
-    public void SetLeavePlayer()
+    public int SetLeavePlayer()
     {
-        Leaveplayer--;
+        Leaveplayer++;
+        return PlayersCalculates.Count - (Leaveplayer - 1);
+
     }
     void RoundEndCheck() {
         //Leaveplayer = Players.Count;
-        if (Leaveplayer <= 1)
+        if (Leaveplayer >= PlayersCalculates.Count - 1)
         {
+            if (!bRoundCheckflg)
+            {
+                for (int i = 0; i < PlayersCalculates.Count; i++)
+                {
+                    if (PlayersCalculates[i].gameObject.activeSelf)
+                    {
+                        PlayerDatas[i].GetPlayerData().POINT = 1;
+                        PlayerDatas[i].GetPlayerData().CalTotalPoint(RoundNum);
+                    }
+                }
+            }
             bRoundCheckflg = true;
+            //OpenScore
+            
+            GameEndCheck();
         }
         else bRoundCheckflg = false;
+    }
+    
+    void ScoreboardCheck()
+    {
+        if(Gamepad.current.IsPressed() || Keyboard.current.IsPressed())
+        {
+            Debug.Log("Click");
+            bScoreboardCheckflg = true;
+        }
+        
+    }
+
+    IEnumerator WaitScoreBoard()
+    {
+        Debug.Log("TimeCheck");
+        yield return new WaitForSecondsRealtime(5.0f);
+        if (!bScoreboardCheckflg)
+        {
+            Debug.Log("TimeOut");
+            bScoreboardCheckflg = true;
+        }
     }
 
     IEnumerator RoundChange() {
@@ -140,9 +190,22 @@ public class GameManager : MonoBehaviour
             {
                 //Random.Range(0, 5);
                 //RoundNum--;
-                Debug.Log("RoundChange");
-                ChangeMap();
-                ResetGameMgr();
+                if (!bScoreboardCheckflg)
+                {
+                    Debug.Log("Score");
+                    if (!ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(true);
+                    //bScoreboardCheckflg = true;
+                    ScoreboardCheck();
+                    StartCoroutine("WaitScoreBoard");
+                    yield return new WaitForEndOfFrame();
+                }
+                else
+                {
+                    if (ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(false);
+                    Debug.Log("RoundChange");
+                    ChangeMap();
+                    ResetGameMgr();
+                }
                 //InitGameMgr();
             }
             else
@@ -150,13 +213,25 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+        //씬전환 - 엔딩씬
+        Debug.Log("Winner is " + Winner.name);
     }
 
     void GameEndCheck() {
-        if(RoundNum <= 0)
+        Gamestartflg = GetWinner();
+        
+    }
+    bool GetWinner()
+    {
+        for(int i = 0; i < PlayerDatas.Length; i++)
         {
-            Gamestartflg = false;
-        }   
+            if(PlayerDatas[i] != null && PlayerDatas[i].GetPlayerData().POINT >= 15)
+            {
+                Winner = PlayerDatas[i].gameObject;
+                return false;
+            }
+        }
+        return true;
     }
     public string GetScheme(string device)
     {
@@ -182,7 +257,7 @@ public class GameManager : MonoBehaviour
 
         MenuPanel.SetActive(true);
         Time.timeScale = 0f;
-        while (Players[0].GetComponent<PlayerInput>().actions["Dash"].phase == InputActionPhase.Waiting && GamePauseflg)
+        while (InputPlayers[0].actions["Dash"].phase == InputActionPhase.Waiting && GamePauseflg)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -203,9 +278,29 @@ public class GameManager : MonoBehaviour
 
     void ChangeMap(int n = 0)
     {
-        DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene("Map_Forest");
-        
+        int MapNum = Random.Range(0, 5);
+        if (TravelAllMap()) RefreshMap();
+        while (bMapChack[MapNum]) { MapNum = Random.Range(0, 5); }
+        Debug.Log(MapNum);
+        bMapChack[MapNum] = true;
+        RoundNum++;
+        //DontDestroyOnLoad(gameObject);
+        //SceneManager.LoadScene("Map_Forest");
+
     }
-    
+    bool TravelAllMap()
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            if (!bMapChack[i]) return false;
+        }
+        return true;
+    }
+    void RefreshMap()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            bMapChack[i] = false;
+        }
+    }
 }

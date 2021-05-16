@@ -48,15 +48,17 @@ public class PlayerSet : MonoBehaviour
 
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
         //PlayerDead();
-    }*/
+    }
     
     private void OnDisable()
     {
         Debug.Log("Dead");
-        GameManager.GM.SetLeavePlayer();
+        playerData.POINT = GameManager.GM.SetLeavePlayer();
+        playerData.CalTotalPoint(GameManager.GM.RoundNum);
+        
     }
     public void OnTriggerEnter(Collider other)
     {
@@ -123,12 +125,12 @@ public class PlayerSet : MonoBehaviour
         return currentscheme;
     }
 
-    void PlayerDead() {
+    /*void PlayerDead() {
         if (!gameObject.activeSelf)
         {
             GameManager.GM.SetLeavePlayer();
         }
-    }
+    }*/
     
 
     

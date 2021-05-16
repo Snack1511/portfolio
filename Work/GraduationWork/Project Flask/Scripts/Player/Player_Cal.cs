@@ -321,8 +321,8 @@ public class Player_Cal : MonoBehaviour
 
     public void Cal_Point(ref bool IsKill, bool IsKillself)
     {
-        if (IsKill) script.GetPlayerData().POINT += 1;
-        if (IsKillself) script.GetPlayerData().POINT -= 1;
+        /*if (IsKill) script.GetPlayerData().POINT += 1;
+        if (IsKillself) script.GetPlayerData().POINT -= 1;*/
         IsKill = false;
     }
     //상대 플레이어 오브젝트가 변경한 Killflg가 변경시 점수 적용

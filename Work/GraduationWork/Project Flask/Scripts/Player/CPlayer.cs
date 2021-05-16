@@ -15,7 +15,8 @@ public class CPlayer
     private float StunTime;
     private float Knockforce;
     private float Speed;
-    private int Point;
+    private List<int> Point;
+    private int TotalPoint;
 
 
     public CPlayer()
@@ -26,26 +27,50 @@ public class CPlayer
         Dmg = 0;
         StunTime = 0.5f;
         Knockforce = 50f;
-        Point = 0;
         Speed = 7.5f;
+        Point = new List<int>();
+        TotalPoint = 0;
     }
-    
-    public CPlayer(/*string name, */float _Mhp = 3, float _Dmg = 0, float _Stuntime = 0.5f, float _Knockforce = 50f, float _Speed = 7.5f, int point = 0) {
+
+    public CPlayer(/*string name, */float _Mhp = 3, float _Dmg = 0, float _Stuntime = 0.5f, float _Knockforce = 50f, float _Speed = 7.5f)
+    {
         //Name = name;
         MaxHp = _Mhp;
         Hp = MaxHp;
         StunTime = _Stuntime;
         Knockforce = _Knockforce;
-        Point = point;
         Speed = _Speed;
+        Point = new List<int>();
+        TotalPoint = 0;
+
     }
-    
+
+
     //public string NAME { get { return Name; } set { } }
     public float HP { get { return Hp; } set { Hp = value; } }
     public float DMG { get { return Dmg; } set { } }
     public float STUNTIME { get { return StunTime; } set { } }
     public float KNOCKFORCE { get { return Knockforce; } set { } }
-    public int POINT { get { return Point; } set { Point = value; } }
+    public int POINT { 
+        get { 
+            return TotalPoint;
+        }
+        set {
+            Point.Add(value);
+            /*for(int i = 0; i < Point.Count; i++)
+            {
+                UnityEngine.Debug.Log(Point[i]);
+            }*/
+        }
+    }
+    public void CalTotalPoint(int n)
+    {
+        if (Point.Count > 0)
+        {
+            UnityEngine.Debug.Log(Point[n]);
+            TotalPoint += (4 - Point[n]);
+        }
+    }
     public float SPD { get { return Speed; } set { } }
     public string print() {
         string str = "HP : " + Hp + "\n" + "DMG : " + Dmg + "\n" + "POINT : " + Point + "\n" + "SPD : " + Speed + "\n";
