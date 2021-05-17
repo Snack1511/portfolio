@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public bool Tutorialchkflg;
     public static GameManager GM;
     public static SelectData[] Selected = new SelectData[4];
+    public int PlayerCount = 0;
     //List<PlayerInput> P_Input;
     // Start is called before the first frame update
     private void Awake()
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
                 PlayerDatas[i] = InputPlayers[i].GetComponent<PlayerSet>();
                 PlayersCalculates.Add(InputPlayers[i].GetComponent<Player_Cal>());
                 DontDestroyOnLoad(InputPlayers[i].gameObject);
+                PlayerCount++;
 
             }
         }
@@ -118,7 +120,7 @@ public class GameManager : MonoBehaviour
     {
         MenuPanel.SetActive(false);
 
-        for (int i = 0; i < PlayersCalculates.Count; i++)
+        for (int i = 0; i < PlayerCount; i++)
         {
             //Debug.Log(PlayersCalculates[i]);
             if (PlayersCalculates[i] != null)
@@ -136,16 +138,16 @@ public class GameManager : MonoBehaviour
     public int SetLeavePlayer()
     {
         Leaveplayer++;
-        return PlayersCalculates.Count - (Leaveplayer - 1);
+        return PlayerCount - (Leaveplayer - 1);
 
     }
     void RoundEndCheck() {
         //Leaveplayer = Players.Count;
-        if (Leaveplayer >= PlayersCalculates.Count - 1)
+        if (Leaveplayer >= PlayerCount - 1)
         {
             if (!bRoundCheckflg)
             {
-                for (int i = 0; i < PlayersCalculates.Count; i++)
+                for (int i = 0; i < PlayerCount; i++)
                 {
                     if (PlayersCalculates[i].gameObject.activeSelf)
                     {
@@ -223,9 +225,9 @@ public class GameManager : MonoBehaviour
     }
     bool GetWinner()
     {
-        for(int i = 0; i < PlayerDatas.Length; i++)
+        for(int i = 0; i < PlayerCount; i++)
         {
-            if(PlayerDatas[i] != null && PlayerDatas[i].GetPlayerData().POINT >= 15)
+            if(/*PlayerDatas[i] != null && */PlayerDatas[i].GetPlayerData().POINT >= 15)
             {
                 Winner = PlayerDatas[i].gameObject;
                 return false;
