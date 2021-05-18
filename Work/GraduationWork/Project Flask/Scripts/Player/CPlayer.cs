@@ -63,6 +63,10 @@ public class CPlayer
             }*/
         }
     }
+    public int Degree
+    {
+        get { return Point[Point.Count - 1]; }
+    }
     public void CalTotalPoint(int n)
     {
         if (Point.Count > 0)

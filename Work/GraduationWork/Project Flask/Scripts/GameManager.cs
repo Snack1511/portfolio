@@ -11,6 +11,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public const float Dist = 20;
+    public static GameManager GM;
+    public static SelectData[] Selected = new SelectData[4];
+    public int Leaveplayer;
+    public int RoundNum;
+    public bool Gamestartflg;
+    public bool GamePauseflg;
+    public bool Tutorialchkflg;
+    public int PlayerCount = 0;
+    public PlayerSet[] ReadPlyerDatas
+    {
+        get { return PlayerDatas; }
+    }
+    public bool ReadRoundCheck
+    {
+        get { return bRoundCheckflg; }
+    }
     bool[] bMapChack;
     bool bRoundCheckflg = false;
     bool bScoreboardCheckflg = false;
@@ -24,15 +41,6 @@ public class GameManager : MonoBehaviour
     PlayerSet[] PlayerDatas;
     List<Player_Cal> PlayersCalculates = new List<Player_Cal>();
     
-    public const float Dist = 20;
-    public int Leaveplayer;
-    public int RoundNum;
-    public bool Gamestartflg;
-    public bool GamePauseflg;
-    public bool Tutorialchkflg;
-    public static GameManager GM;
-    public static SelectData[] Selected = new SelectData[4];
-    public int PlayerCount = 0;
     //List<PlayerInput> P_Input;
     // Start is called before the first frame update
     private void Awake()
@@ -133,7 +141,9 @@ public class GameManager : MonoBehaviour
         Leaveplayer = 0;
         //RoundEndCheck();
         bRoundCheckflg = false;
-        
+        bScoreboardCheckflg = false;
+
+
     }
     public int SetLeavePlayer()
     {
@@ -157,7 +167,6 @@ public class GameManager : MonoBehaviour
                 }
             }
             bRoundCheckflg = true;
-            //OpenScore
             
             GameEndCheck();
         }
@@ -166,7 +175,7 @@ public class GameManager : MonoBehaviour
     
     void ScoreboardCheck()
     {
-        if(Gamepad.current.IsPressed() || Keyboard.current.IsPressed())
+        if(Gamepad.current.wasUpdatedThisFrame||Keyboard.current.IsPressed())
         {
             Debug.Log("Click");
             bScoreboardCheckflg = true;
@@ -178,11 +187,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("TimeCheck");
         yield return new WaitForSecondsRealtime(5.0f);
-        if (!bScoreboardCheckflg)
+        if (ScoreboardPanel.activeSelf && !bScoreboardCheckflg)
         {
             Debug.Log("TimeOut");
             bScoreboardCheckflg = true;
         }
+        
     }
 
     IEnumerator RoundChange() {
