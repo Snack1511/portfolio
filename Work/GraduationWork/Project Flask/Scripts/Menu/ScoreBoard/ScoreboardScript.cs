@@ -8,14 +8,11 @@ public class ScoreboardScript : MonoBehaviour
     public float Height = 100;
     public float padding = 30;
     public float PixelMultiple = 2.5f;
-    public bool Readflg = false;
-    GameObject MedalEffect;
     Vector3 HeightMoveValue;
     private void Awake()
     {
         HeightMoveValue = new Vector3(0, Height + padding, 0);
-        MedalEffect = transform.GetChild(transform.childCount - 1).gameObject;
-        for (int i = 0; i < GameManager.GM.PlayerCount; i++)
+        for (int i = 1; i <= GameManager.GM.PlayerCount; i++)
         {
             InitScoreMeter(i);
         }
@@ -24,14 +21,14 @@ public class ScoreboardScript : MonoBehaviour
     {
         if (GameManager.GM.ReadRoundCheck)
         {
-            for (int i = 0; i < GameManager.GM.PlayerCount; i++)
+            for (int i = 1; i <= GameManager.GM.PlayerCount; i++)
             {
                 transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().SetData(
                     GameManager.GM.RoundNum,
-                    GameManager.GM.ReadPlyerDatas[i].GetPlayerData().Degree
+                    GameManager.GM.ReadPlyerDatas[i-1].GetPlayerData().Degree
                     );
+                transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().idxmax = GameManager.GM.ReadPlyerDatas[i - 1].GetPlayerData().POINT;
             }
-            Readflg = true;
         }
     }
     void Start()
@@ -50,7 +47,7 @@ public class ScoreboardScript : MonoBehaviour
     {
         
     }
-    void InitScoreMeter(int ChildNum = 0)
+    void InitScoreMeter(int ChildNum = 1)
     {
         var objrtr = transform.GetChild(ChildNum).GetComponent<RectTransform>();
         objrtr.anchoredPosition3D += (HeightMoveValue * 0.5f);

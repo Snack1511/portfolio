@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     {
         get { return bRoundCheckflg; }
     }
+    public bool ReadScoreboardCheck
+    {
+        get { return bScoreboardCheckflg; }
+    }
     bool[] bMapChack;
     bool bRoundCheckflg = false;
     bool bScoreboardCheckflg = false;

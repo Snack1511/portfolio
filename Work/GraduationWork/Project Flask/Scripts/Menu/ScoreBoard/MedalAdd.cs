@@ -6,23 +6,26 @@ public class MedalAdd : MonoBehaviour
 {
     public int RoundNum;
     public int PlayerDegree;
+    public float spd = 0.05f;
+    public int idxmax;
 
+    int idx;
     ScoreboardScript SBscript;
-    List<Image> Medals = new List<Image>();
-    Vector2 SizeValue = new Vector2(100, 0);
-    Vector2 SizeValueY = new Vector2(0, 100);
-    Vector2 Anchor = new Vector2(0, 0.5f);
+    Image[] Medals = new Image[20];
     GameObject Img;
     private void Awake()
     {
+        idx = 0;
         SBscript = transform.parent.parent.GetComponent<ScoreboardScript>();
-        
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            Medals[i] = transform.GetChild(i).GetComponent<Image>();
+        }
     }
     private void OnEnable()
     {
-        AddStageMedal();
         
-        
+        //AddStageMedal();
     }
     // Start is called before the first frame update
     void Start()
@@ -34,40 +37,39 @@ public class MedalAdd : MonoBehaviour
     {
         
     }
-    
+    private void OnDisable()
+    {
+        if (!Medals[idxmax - 1].GetComponent<MedalEffect>().bPlayEnd)
+        {
+            for (int i = idx; i < idxmax; i++)
+            {
+
+                Medals[i].sprite = SBscript.sprites[PlayerDegree - 1];
+                Medals[i].gameObject.SetActive(true);
+                //Medals[i - 1].GetComponent<MedalEffect>().bLoadCheck = true;
+            }
+        }
+    }
     private void LateUpdate()
     {
-        IncreaseMedal(Medals[RoundNum], PlayerDegree, false);
+        MedalImgChange(PlayerDegree);
     }
-    void AddStageMedal()
+    
+    void MedalImgChange(int Degree)
     {
-        Img = new GameObject();
-        Img.name = "Stage " + RoundNum + " Medal";
-        Img.AddComponent<RectTransform>().SetParent(transform.GetChild(0));
-        Img.GetComponent<RectTransform>().anchorMin = Anchor;
-        Img.GetComponent<RectTransform>().anchorMax = Anchor;
-        Img.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(Img.GetComponent<RectTransform>().sizeDelta.x * 0.5f, 0, 0);
-        Img.AddComponent<Image>().type = Image.Type.Tiled;
-        Img.GetComponent<Image>().pixelsPerUnitMultiplier = SBscript.PixelMultiple;
-        Medals.Add(Img.GetComponent<Image>());
-    }
-    void IncreaseMedal(Image img, int Degree = 0, bool flg = false)
-    {
-        if (img.GetComponent<Image>().sprite == null)
+        if (idx == 0 || Medals[idx-1].GetComponent<MedalEffect>().bPlayEnd)
         {
-            img.GetComponent<Image>().sprite = SBscript.sprites[Degree - 1];
-        }
-        if (flg)
-        {
+            if (idxmax - idx > 0)//4 - Degree)
+            {
+                Medals[idx].sprite = SBscript.sprites[Degree - 1];
+                Medals[idx].gameObject.SetActive(true);
+                idx++;
+            }
             
-            img.GetComponent<RectTransform>().sizeDelta += SizeValue;
         }
-        else
-        {
-            img.GetComponent<RectTransform>().sizeDelta = (SizeValue * (4 - Degree));
-            img.GetComponent<RectTransform>().sizeDelta += SizeValueY;
-        }
+        
     }
+
     public void SetData(int RNum, int Degree)
     {
         RoundNum = RNum;
