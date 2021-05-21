@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg3930"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="Gangwon.svg">
+  <defs
+     id="defs3924" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-47.096846"
+     inkscape:cy="327.25225"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg3930"
+     showgrid="false"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3927">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="강원도"
+     style="display:inline">
+    <path
+       style="display:inline;fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 67.725571,47.636321 4.710626,5.245163 3.975635,-1.971114 10.45692,10.122834 -2.873147,4.911079 0.835215,5.980155 9.48807,3.474503 -2.973375,2.605879 -0.701582,11.392363 6.414469,1.5368 1.102487,-3.641547 2.772921,2.572469 4.00905,-2.204974 4.07586,1.169305 -1.70385,1.570207 0.60135,1.202714 2.93997,-0.801809 1.40316,2.138156 2.90657,-0.768401 7.38332,3.140419 1.20271,-3.474505 3.34087,1.804069 9.88896,1.002263 4.57699,-4.242906 -32.60687,-56.995226 -0.96886,7.617182 -6.88218,4.309721 z"
+       id="path4770"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

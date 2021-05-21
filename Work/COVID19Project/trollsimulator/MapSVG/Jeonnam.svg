@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg3930"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="Jeonnam.svg">
+  <defs
+     id="defs3924" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-47.096846"
+     inkscape:cy="327.25225"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg3930"
+     showgrid="false"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3927">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer17"
+     inkscape:label="전남"
+     style="display:inline">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 234.82227,594.48438 -12.14454,1.60742 -2.32031,13.92773 -21.96484,6.78516 -10.71485,-18.75 -15.44726,31.00586 -30.80859,123.99609 74.37109,12.12109 90.91406,-25.88476 50.88672,-30.80859 -10.48047,-47.98243 -22.98047,-23.86523 0.33203,-17.86719 -14.82226,-9.10742 -10,8.57227 -41.96485,-2.14258 -0.89257,-19.46485 -10.71289,8.75 z m 9.76171,32.30273 5.05079,10.60742 5.55468,0.25195 -0.3789,10.35352 -5.42969,5.42969 -5.55469,-1.51563 -14.14258,5.42969 -7.44921,-8.33398 -8.9668,-1.38868 v -10.73242 l 9.59765,-6.5664 8.08008,1.13671 z"
+       id="path4871"
+       transform="scale(0.26458333)"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

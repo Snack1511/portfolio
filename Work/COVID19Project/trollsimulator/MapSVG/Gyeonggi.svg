@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg3930"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="Gyeonggi.svg">
+  <defs
+     id="defs3924" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-47.096846"
+     inkscape:cy="327.25225"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg3930"
+     showgrid="false"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3927">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer7"
+     inkscape:label="경기도"
+     style="display:inline;opacity:1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 255.9707,180.04297 -36.00976,48.74414 -4.45117,23.48633 -13.47852,-0.66406 -1.54687,19.13085 25.23046,10.55274 4.10743,21.67383 -9.10743,12.76758 17.94532,11.33984 -20.26758,1.69531 -1.07031,19.91016 24.55273,11.07226 -0.17773,6.78516 -7.05469,0.35742 9.19726,12.85742 26.875,-8.125 17.67774,7.5 54.19922,-41.24804 2.65039,-43.05664 11.23828,-9.84961 -35.85938,-13.13282 -3.1582,-22.60156 10.85938,-18.5625 -39.52149,-38.25781 -15.02539,7.44922 z m 2.12305,83.97265 7.07031,0.37891 3.28321,17.93164 7.32421,1.13477 -12.62695,15.27929 -16.79297,3.28321 -9.84961,-8.71289 -7.57617,-11.61719 3.78906,-5.05078 8.83789,5.05078 2.27344,-7.95508 8.08008,0.12695 z"
+       id="path4788"
+       transform="scale(0.26458333)"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
