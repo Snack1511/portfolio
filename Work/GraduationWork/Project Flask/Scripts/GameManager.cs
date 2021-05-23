@@ -179,10 +179,17 @@ public class GameManager : MonoBehaviour
     
     void ScoreboardCheck()
     {
-        if(Gamepad.current.wasUpdatedThisFrame||Keyboard.current.IsPressed())
+        if((Gamepad.current.IsPressed()&&Gamepad.current.wasUpdatedThisFrame)||(Keyboard.current.IsPressed()&&Keyboard.current.wasUpdatedThisFrame))
         {
-            Debug.Log("Click");
-            bScoreboardCheckflg = true;
+            if (ScoreboardPanel.transform.GetChild(1).GetComponent<ScoreboardScript>().bPlayEnd)
+            {
+                bScoreboardCheckflg = true;
+            }
+            else
+            {
+                Debug.Log("Click");
+                ScoreboardPanel.transform.GetChild(1).GetComponent<ScoreboardScript>().bPlayEnd = true;
+            }
         }
         
     }
@@ -193,6 +200,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(5.0f);
         if (ScoreboardPanel.activeSelf && !bScoreboardCheckflg)
         {
+            
             Debug.Log("TimeOut");
             bScoreboardCheckflg = true;
         }
@@ -208,6 +216,7 @@ public class GameManager : MonoBehaviour
                 //RoundNum--;
                 if (!bScoreboardCheckflg)
                 {
+                    
                     Debug.Log("Score");
                     if (!ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(true);
                     //bScoreboardCheckflg = true;

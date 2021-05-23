@@ -57,5 +57,8 @@ public class MedalEffect : MonoBehaviour
         
         
     }
-    
+    public void SetSize()
+    {
+        RTr.localScale = ChangeValue;
+    }
 }

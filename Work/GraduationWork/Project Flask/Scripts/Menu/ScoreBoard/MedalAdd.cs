@@ -6,6 +6,8 @@ public class MedalAdd : MonoBehaviour
 {
     public int RoundNum;
     public int PlayerDegree;
+    public int Totalscore;
+    
     public float spd = 0.05f;
     public int idxmax;
 
@@ -15,6 +17,7 @@ public class MedalAdd : MonoBehaviour
     GameObject Img;
     private void Awake()
     {
+        
         idx = 0;
         SBscript = transform.parent.parent.GetComponent<ScoreboardScript>();
         for(int i = 0; i < transform.childCount; i++)
@@ -52,16 +55,25 @@ public class MedalAdd : MonoBehaviour
     }
     private void LateUpdate()
     {
-        MedalImgChange(PlayerDegree);
+        
+        if (SBscript.bPlayEnd)
+        {
+            
+            MedalChangeEnd();
+        }
+        else
+        {
+            MedalImgChange();
+        }
     }
     
-    void MedalImgChange(int Degree)
+    void MedalImgChange()
     {
         if (idx == 0 || Medals[idx-1].GetComponent<MedalEffect>().bPlayEnd)
         {
             if (idxmax - idx > 0)//4 - Degree)
             {
-                Medals[idx].sprite = SBscript.sprites[Degree - 1];
+                Medals[idx].sprite = SBscript.sprites[PlayerDegree - 1];
                 Medals[idx].gameObject.SetActive(true);
                 idx++;
             }
@@ -70,11 +82,25 @@ public class MedalAdd : MonoBehaviour
         
     }
 
-    public void SetData(int RNum, int Degree)
+    void MedalChangeEnd()
+    {//total-idx ~ total
+        if (idx <= Totalscore)
+        {
+            Medals[idx].sprite = SBscript.sprites[PlayerDegree - 1];
+            Medals[idx].gameObject.SetActive(true);
+            Medals[idx].GetComponent<MedalEffect>().SetSize();
+            Medals[idx].GetComponent<MedalEffect>().bPlayEnd = true;
+            idx++;
+        }
+    }
+
+    public void SetData(int RNum, int Degree, int score)
     {
         RoundNum = RNum;
         PlayerDegree = Degree;
-        
+        Totalscore = score;
+
+
     }
     
 }

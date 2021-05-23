@@ -8,9 +8,11 @@ public class ScoreboardScript : MonoBehaviour
     public float Height = 100;
     public float padding = 30;
     public float PixelMultiple = 2.5f;
+    public bool bPlayEnd;
     Vector3 HeightMoveValue;
     private void Awake()
     {
+        bPlayEnd = false;
         HeightMoveValue = new Vector3(0, Height + padding, 0);
         for (int i = 1; i <= GameManager.GM.PlayerCount; i++)
         {
@@ -25,7 +27,8 @@ public class ScoreboardScript : MonoBehaviour
             {
                 transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().SetData(
                     GameManager.GM.RoundNum,
-                    GameManager.GM.ReadPlyerDatas[i-1].GetPlayerData().Degree
+                    GameManager.GM.ReadPlyerDatas[i-1].GetPlayerData().Degree,
+                    GameManager.GM.ReadPlyerDatas[i - 1].GetPlayerData().POINT
                     );
                 transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().idxmax = GameManager.GM.ReadPlyerDatas[i - 1].GetPlayerData().POINT;
             }
@@ -45,7 +48,7 @@ public class ScoreboardScript : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        bPlayEnd = false;
     }
     void InitScoreMeter(int ChildNum = 1)
     {
