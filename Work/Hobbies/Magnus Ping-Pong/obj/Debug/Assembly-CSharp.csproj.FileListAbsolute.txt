@@ -1,0 +1,2 @@
+D:\MyGame\Magnus Ping-Pong\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\MyGame\Magnus Ping-Pong\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
