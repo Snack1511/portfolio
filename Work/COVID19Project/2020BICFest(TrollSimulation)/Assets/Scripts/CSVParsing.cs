@@ -27,79 +27,37 @@ public class CSVParsing
     public static char[] Trim_Chars = { '\"' };//큰떠옴표 = 문자열 종료문자
 
     public static List<Dictionary<string, object>> Read(string file)
-
     {
-
         var list = new List<Dictionary<string, object>>();
-
         TextAsset data = Resources.Load(file) as TextAsset;
-
-
-
         var lines = Regex.Split(data.text, Line_Splite_Re);
-
-
-
         if (lines.Length <= 1) return list;
-
-
-
         var header = Regex.Split(lines[0], Split_Re);
-
         for (var i = 1; i < lines.Length; i++)
-
         {
-
-
-
             var values = Regex.Split(lines[i], Split_Re);
-
             if (values.Length == 0 || values[0] == "") continue;
-
-
-
             var entry = new Dictionary<string, object>();
-
             for (var j = 0; j < header.Length && j < values.Length; j++)
-
             {
-
                 string value = values[j];
-
                 value = value.TrimStart(Trim_Chars).TrimEnd(Trim_Chars).Replace("\\", "");
-
                 object finalvalue = value;
-
                 int n;
-
                 float f;
-
                 if (int.TryParse(value, out n))
-
                 {
-
                     finalvalue = n;
-
                 }
-
                 else if (float.TryParse(value, out f))
-
                 {
-
                     finalvalue = f;
-
                 }
-
                 entry[header[j]] = finalvalue;
-
             }
-
             list.Add(entry);
-
         }
-
         return list;
-
     }
 
 

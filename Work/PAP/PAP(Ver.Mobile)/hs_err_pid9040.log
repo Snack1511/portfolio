@@ -1,0 +1,160 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00000000716c2ec3, pid=9040, tid=11160
+#
+# JRE version:  (9.0+11) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (9.0.1+11, mixed mode, tiered, compressed oops, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x1b2ec3]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx2048M -Dfile.encoding=UTF8 C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar -
+
+Host: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 16299 (10.0.16299.15)
+Time: Sat Dec 02 19:54:23 2017 ¢¥eCN©öI¡¾©ö C¡ÍA¨ª¨öA elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000018318149800):  JavaThread "Unknown thread" [_thread_in_vm, id=11160, stack(0x000000469fa00000,0x000000469fb00000)]
+
+Stack: [0x000000469fa00000,0x000000469fb00000],  sp=0x000000469faff5b0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000000
+
+
+Registers:
+RAX=0x0000000000000001, RBX=0x0000000000000000, RCX=0x0000000000000000, RDX=0x000001831812fe01
+RSP=0x000000469faff5b0, RBP=0x0000000000000000, RSI=0x000000469faff9e8, RDI=0x0000018318149800
+R8 =0x0000000000000000, R9 =0x0000000000000006, R10=0x0000000000000007, R11=0x000000469fafee40
+R12=0x0000000071a4f800, R13=0x000001831811d4c0, R14=0x000001831812e8b8, R15=0x0000000000000000
+RIP=0x00000000716c2ec3, EFLAGS=0x0000000000010256
+
+Top of Stack: (sp=0x000000469faff5b0)
+0x000000469faff5b0:   0000018318154710 0000000071abd9c3
+0x000000469faff5c0:   0000000000000038 0000000071a718cd
+0x000000469faff5d0:   0000000071ce9708 0000000071c87d60
+0x000000469faff5e0:   0000000000000140 000000469faff640
+0x000000469faff5f0:   0000018318149800 0000000071a71c25
+0x000000469faff600:   0000018318147d10 0000000000000000
+0x000000469faff610:   0000000000000000 0000000071a71607
+0x000000469faff620:   0000000000000000 0000000071abd7b9
+0x000000469faff630:   00000000243a3716 0000000071510000
+0x000000469faff640:   0000018318154710 0000000000000000
+0x000000469faff650:   0000000000000004 0000d8c55755eab2
+0x000000469faff660:   0000000000000000 00000000716c2a75
+0x000000469faff670:   0000000000000004 0000000000000000
+0x000000469faff680:   000001831811d4c0 000000469faff9e8
+0x000000469faff690:   000000469faff6d0 00000000716c0e21
+0x000000469faff6a0:   0000000000000000 000000469faff6d0 
+
+Instructions: (pc=0x00000000716c2ec3)
+0x00000000716c2ea3:   48 33 c4 48 89 84 24 a8 00 00 00 0f b6 c2 88 54
+0x00000000716c2eb3:   24 31 48 8b e9 49 83 c8 ff 0f 1f 40 00 49 ff c0
+0x00000000716c2ec3:   41 80 3c 08 00 75 f6 33 f6 45 33 ed 88 44 24 30
+0x00000000716c2ed3:   45 85 c0 0f 8e 78 02 00 00 8b 0d 62 01 7e 00 65 
+
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+[error occurred during error reporting (printing all threads), id 0xc0000005]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+
+[error occurred during error reporting (printing compressed oops mode), id 0xc0000005]
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7fa630000 - 0x00007ff7fa66e000 	D:\JDK\bin\java.exe
+0x00007ffd7e120000 - 0x00007ffd7e300000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffd7dd70000 - 0x00007ffd7de1e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffd7b380000 - 0x00007ffd7b5e6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffd7c620000 - 0x00007ffd7c6c1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffd7de20000 - 0x00007ffd7debd000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffd7db70000 - 0x00007ffd7dbcb000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffd7dbd0000 - 0x00007ffd7dcef000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffd7dee0000 - 0x00007ffd7e06f000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffd7a880000 - 0x00007ffd7a8a0000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffd7bc40000 - 0x00007ffd7bc68000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffd7b140000 - 0x00007ffd7b2d4000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffd7b2e0000 - 0x00007ffd7b37b000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffd7a8a0000 - 0x00007ffd7a996000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffd71d70000 - 0x00007ffd71fd9000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.64_none_cc9304e22215ca8f\COMCTL32.dll
+0x00007ffd78b90000 - 0x00007ffd78b9a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffd7b810000 - 0x00007ffd7bb18000 	C:\WINDOWS\System32\combase.dll
+0x00007ffd7a5d0000 - 0x00007ffd7a642000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffd7bc70000 - 0x00007ffd7bc9d000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffd5f590000 - 0x00007ffd5f67f000 	D:\JDK\bin\msvcr120.dll
+0x00007ffd60d40000 - 0x00007ffd60de6000 	D:\JDK\bin\msvcp120.dll
+0x0000000071510000 - 0x0000000071f34000 	D:\JDK\bin\server\jvm.dll
+0x00007ffd7bb20000 - 0x00007ffd7bb28000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffd6af00000 - 0x00007ffd6af09000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffd78070000 - 0x00007ffd78093000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffd7dcf0000 - 0x00007ffd7dd5c000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffd78010000 - 0x00007ffd7803a000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffd7b0f0000 - 0x00007ffd7b13a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffd656a0000 - 0x00007ffd656af000 	D:\JDK\bin\verify.dll
+0x00007ffd601e0000 - 0x00007ffd60207000 	D:\JDK\bin\java.dll
+0x00007ffd56800000 - 0x00007ffd56816000 	D:\JDK\bin\zip.dll
+0x00007ffd567f0000 - 0x00007ffd567fa000 	D:\JDK\bin\jimage.dll
+0x00007ffd6b8d0000 - 0x00007ffd6ba98000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Xmx2048M -Dfile.encoding=UTF8 
+java_command: C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar -
+java_class_path (initial): C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer/Tools\sdktools.jar
+Launcher Type: SUN_STANDARD
+
+Logging:
+Log output configuration:
+#0: stdout all=warning uptime,level,tags
+#1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\snack\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;
+USERNAME=snack
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 16299 (10.0.16299.15)
+
+CPU:total 8 (initial active 8) 
+
+Memory: 4k page, physical 8325112k(5326072k free), swap 13830136k(10326344k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (9.0.1+11) for windows-amd64 JRE (9.0.1+11), built on Sep 28 2017 04:54:03 by "mach5one" with MS VC++ 12.0 (VS2013)
+
+END.

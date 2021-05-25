@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "New Unity Project - 복사본", "New Unity Project - 복사본.csproj", "{26D72456-A0E3-FFDC-6D4D-85632C6C5EE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26D72456-A0E3-FFDC-6D4D-85632C6C5EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D72456-A0E3-FFDC-6D4D-85632C6C5EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D72456-A0E3-FFDC-6D4D-85632C6C5EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D72456-A0E3-FFDC-6D4D-85632C6C5EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

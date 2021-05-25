@@ -103,7 +103,7 @@ public class CPlayercontrol : MonoBehaviour
                 if (hit.collider.CompareTag("TAG_CITY"))
                 {
                     OnMouseCity = hit.collider.gameObject.name;
-                    PanelPos = Input.mousePosition + new Vector3(50, 0, 0);
+                    PanelPos = Input.mousePosition+ new Vector3(50, 0, 0);
                     FloatingPanelPos.xMin = Input.mousePosition.x - 80;
                     FloatingPanelPos.xMax = Input.mousePosition.x + 80;
                     FloatingPanelPos.yMin = Input.mousePosition.y - 45;

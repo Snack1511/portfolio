@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 549d8df9f27da4d4fa9e7e1b88b1fb64
+timeCreated: 1480508569
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - symberse: {fileID: 8300000, guid: ef2ff25eb9dc211419f409cee29c2c4c, type: 3}
+  - hat_O: {fileID: 8300000, guid: bbdea22e4b39b994e8d7fd37c21e9424, type: 3}
+  - hat_C: {fileID: 8300000, guid: 81a2cfcf4df754341a53f8d4e4115c18, type: 3}
+  - kick: {fileID: 8300000, guid: 55b7a5ed901ec0048b1fa7c22a30ae01, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
