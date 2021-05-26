@@ -1,0 +1,4 @@
+﻿  fact.cpp
+c:\users\game518\desktop\알고리즘\fact\fact\fact.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+  fact.vcxproj -> C:\Users\game518\Desktop\알고리즘\fact\Debug\fact.exe
+  fact.vcxproj -> C:\Users\game518\Desktop\알고리즘\fact\Debug\fact.pdb (Partial PDB)

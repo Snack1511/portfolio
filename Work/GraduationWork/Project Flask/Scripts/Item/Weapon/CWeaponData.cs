@@ -7,15 +7,18 @@ using UnityEditor;
 [Serializable]
 public class CWeaponData
 {
+    string strName;
     string strOwner;
     WeaponType Type;
     float fDmg;
     float fStuntime;
     float fKnockforce;
+    
     //bool bAttflg;
 
-    public CWeaponData(string name, WeaponType _Type, float dmg, float stuntime, float knockforce) {
-        strOwner = name;
+    public CWeaponData(string name, string Owner, WeaponType _Type, float dmg, float stuntime, float knockforce) {
+        strName = name;
+        strOwner = Owner;
         Type = _Type;
         fDmg = dmg;
         fStuntime = stuntime;
@@ -23,9 +26,12 @@ public class CWeaponData
         //bAttflg = false;
     }
 
-    public void Setname(string str) => strOwner = str;
+    public string GetName()
+    {
+        return strName;
+    }
 
-    public string OWNER { get { return strOwner; } set { } }
+    public string OWNER { get { return strOwner; } set { strOwner = value; } }
     public float DMG { get { return fDmg; } set { } }
     public float STUNTIME { get { return fStuntime; } set { } }
     public float KNOCKFORCE { get { return fKnockforce; } set { } }

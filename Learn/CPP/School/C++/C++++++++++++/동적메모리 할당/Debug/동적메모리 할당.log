@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\동적메모리 할당\main.cpp(6): warning C4101: 'pdata': unreferenced local variable
+  동적메모리 할당.vcxproj -> C:\Users\snacklap\documents\visual studio 2015\Projects\C++++++++++++\Debug\동적메모리 할당.exe
+  동적메모리 할당.vcxproj -> C:\Users\snacklap\documents\visual studio 2015\Projects\C++++++++++++\Debug\동적메모리 할당.pdb (Full PDB)

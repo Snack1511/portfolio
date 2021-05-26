@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{13298aaa-f81e-4c7e-8ff8-aa60d43e7fd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj">
+      <UniqueIdentifier>{ec90b0a9-f1d4-4a83-9005-1de5bc28497a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame">
+      <UniqueIdentifier>{c808be14-ccab-4111-88c6-33d82fd7d9ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame\BackGround">
+      <UniqueIdentifier>{a07c7c07-83b2-4927-b2c1-581bca1310b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame\Collision">
+      <UniqueIdentifier>{ac199696-4beb-4e5c-a71f-c495135b0c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame\CursorMgr">
+      <UniqueIdentifier>{86c0e24d-054d-46d0-a8dc-780d437bf65c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame\DoubleBuffer">
+      <UniqueIdentifier>{28a2c567-7b0f-46d1-9d15-afd2dc90a073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainGame\KeyMgr">
+      <UniqueIdentifier>{aaf6ebc0-1f08-4004-98b4-c0caf618e6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Ending">
+      <UniqueIdentifier>{a7b64dc9-6062-4db6-9eb9-90acede55d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Logo">
+      <UniqueIdentifier>{b2757eea-b7ad-4fd1-b658-87df6809f1da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Menu">
+      <UniqueIdentifier>{bedaff7b-8805-40ab-87be-a8281c004249}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene\Stage">
+      <UniqueIdentifier>{9473aeb0-0d4a-4f2c-bf45-7b8b7ea3a870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Player">
+      <UniqueIdentifier>{e4ffa183-c8d2-4e9a-b047-3bdb056ba4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Monster">
+      <UniqueIdentifier>{9c1f63cd-251c-4795-a889-5e7ac9ad4199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Bullet">
+      <UniqueIdentifier>{38525418-f4de-474a-be32-d43a32a30a1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Block">
+      <UniqueIdentifier>{27a0c5f8-c2e9-4c4d-a9ee-26d35dd169aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SceneMgr.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObj.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>Source Files\MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Source Files\MainGame\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\MainGame\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="CursorMgr.cpp">
+      <Filter>Source Files\MainGame\CursorMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>Source Files\MainGame\DoubleBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>Source Files\MainGame\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Source Files\Scene\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Ending.cpp">
+      <Filter>Source Files\Scene\Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>Source Files\Scene\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMenu.cpp">
+      <Filter>Source Files\Scene\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Source Files\Scene\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Obj\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Obj\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Obj\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Source Files\Obj\Block</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SceneMgr.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObj.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Source Files\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFactory.h">
+      <Filter>Source Files\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>Source Files\MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Source Files\MainGame\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Source Files\MainGame\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="CursorMgr.h">
+      <Filter>Source Files\MainGame\CursorMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
+      <Filter>Source Files\MainGame\DoubleBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>Source Files\MainGame\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Source Files\Scene\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="Ending.h">
+      <Filter>Source Files\Scene\Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>Source Files\Scene\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMenu.h">
+      <Filter>Source Files\Scene\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Source Files\Scene\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Obj\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Source Files\Obj\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\Obj\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Source Files\Obj\Block</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+﻿  main.cpp
+d:\projects\c++++++++++++\static\main.cpp(7): error C3867: 'Person::getMoney': 비표준 구문입니다. '&'를 사용하여 멤버 포인터를 만드세요.
+d:\projects\c++++++++++++\static\main.cpp(8): error C3867: 'Person::getMoney': 비표준 구문입니다. '&'를 사용하여 멤버 포인터를 만드세요.
+d:\projects\c++++++++++++\static\main.cpp(9): error C3867: 'Person::getMoney': 비표준 구문입니다. '&'를 사용하여 멤버 포인터를 만드세요.
+d:\projects\c++++++++++++\static\main.cpp(10): error C3867: 'Person::getMoney': 비표준 구문입니다. '&'를 사용하여 멤버 포인터를 만드세요.

@@ -1,0 +1,15 @@
+﻿빌드 시작: 2018-03-19 오후 3:22:09
+     1>2 노드의 "C:\Users\game518\Desktop\알고리즘\fact\fact\fact.vcxproj" 프로젝트(Build 대상)입니다.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\fact.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt fact.cpp
+         fact.cpp
+     1>fact.cpp : warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\game518\Desktop\알고리즘\fact\x64\Debug\fact.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\game518\Desktop\알고리즘\fact\x64\Debug\fact.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\game518\Desktop\알고리즘\fact\x64\Debug\fact.lib" /MACHINE:X64 x64\Debug\fact.obj
+         x64\Debug\stdafx.obj
+         fact.vcxproj -> C:\Users\game518\Desktop\알고리즘\fact\x64\Debug\fact.exe
+     1>"C:\Users\game518\Desktop\알고리즘\fact\fact\fact.vcxproj" 프로젝트를 빌드했습니다(Build 대상).
+
+빌드했습니다.
+
+경과 시간: 00:00:00.71

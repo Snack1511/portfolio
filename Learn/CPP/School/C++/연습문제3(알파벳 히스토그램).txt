@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+#include<ctype.h>
+
+using namespace std;
+void main(){
+
+	char text[10000], alphabat[26], a = 'a';
+
+	cout << "type text by english : " << endl;
+	cin.getline(text, 10000, ';');
+
+	int A_count = strlen(text);
+	int A = 0;
+	
+
+	for(int i = 0; i < A_count; i++){
+		if(isalpha(text[i]) != 0){
+			A++;
+		}
+	}//영문자 아닌경우 카운트제외
+
+	cout << "total alphabat is " << A <<endl;
+
+	for(int i = 0; i<A_count; i++){
+		text[i] = (char)tolower(text[i]);
+	}//대문자 => 소문자
+
+	for(int i = 0; i<26;i++){
+		alphabat[i] = a;
+		cout << alphabat[i] << " : ";
+		int count = 0;
+		for(int j = 0; j < A_count; j++){
+			if(text[j] == alphabat[i]){
+			cout << '*';
+			}
+		}//히스토그램
+		cout << endl;
+		a++;
+	}
+
+}

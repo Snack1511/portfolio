@@ -60,9 +60,9 @@ public abstract class Weapon : Item
     }
     //--------------Item 함수 재정의 부분
 
-    protected void InitWeapon(ITEMTYPE Type, WeaponType weaponType, float _Dmg, float _Stuntime, float _Knockforce) {
+    protected void InitWeapon(string name, ITEMTYPE Type, WeaponType weaponType, float _Dmg, float _Stuntime, float _Knockforce) {
         InitItem(Type, _Dmg);
-        WData = new CWeaponData("", weaponType, _Dmg, _Stuntime, _Knockforce);
+        WData = new CWeaponData(name, "", weaponType, _Dmg, _Stuntime, _Knockforce);
         /*StunTime = _Stuntime;
         Knockbackforce = _Knockforce;*/
     }
@@ -94,7 +94,7 @@ public abstract class Weapon : Item
     protected void ResetWeapon_Value(bool flag = false, float value = 5f)
     {
         SetOwner();
-        WData.Setname(Owner);
+        WData.OWNER = Owner;
         bThrowEnd = true;
         //bIsCollision = false;
         IsTouchLimitHeight = flag;

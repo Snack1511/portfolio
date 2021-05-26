@@ -1,0 +1,310 @@
+카메라 = 행렬
+투영 => 카메라의 디폴트 행렬에 P라는 투영을 곱하면 나옴
+=> P라는 투영행렬을 바꿔준는 것이 투영
+
+종 : 세로
+횡 : 가로
+
+각 하나만 알면 카메라 시야각을 조정할수 있다
+
+투영 행렬 : 카메라를 바꾼다
+nearplane - 투영되는 곳
+
+farplane - 게임의 배경에 보이는 안개 같은 구간
+	- 현실에서 사진을 찍으면 무한히 그려지지만 컴퓨터로 하면 계산량이 많아짐
+	- 어디까지 찍을지 거리를 제한
+
+
+모델뷰 행렬 : 물체를 바꾼다
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <Windows.h>
+#define GLUT_DISABLE_ATEXIT_HACK
+#include <gl/GL.h>
+#include <gl/glut.h>
+#include <stdio.h>
+#include <math.h>
+
+
+/*void myDisplay() {
+glClear(GL_COLOR_BUFFER_BIT);
+glFlush();
+}*/
+
+
+/*void display(){
+glClear(GL_COLOR_BUFFER_BIT);
+
+glPointSize(5);
+glBegin(GL_TRIANGLES);
+static float x = -1.0;
+float y = x*x;
+glColor3f(x, y, y - x);
+glVertex3f(0 + x, 0 + y, 0);
+glColor3f(0.1 + x, y, y - x);
+glVertex3f(0.2 + x, 0 + y, 0);
+glColor3f(x, 0.1 + y, y - x);
+glVertex3f(0 + x, 0.2 + y, 0);
+glColor3f(x, y, y-x);
+glVertex3f(x, y, 0);
+x += 0.0001;
+if (x > 1.0) x -= 2.0;
+
+
+
+glEnd();
+
+glFlush();
+}*/
+//parameters for camera lens
+/*
+float static range = 1.0;
+float static aspRatio = 1.0;
+float dx = 0.0;
+void keyboard(unsigned char c, int , int ){
+	
+	
+
+	//set some parameters for camera lens specification
+	if (c == 'w'){
+		range *= 0.9;
+	}//zoom in
+	if (c == 's'){
+		range *= 1.1;
+	}//zoom out
+	if (c == 'a'){
+		dx -= 1.0;
+		
+	}
+	if (c == 'd'){
+		dx += 1.0;
+		
+	}
+	void setCamera();
+	//invoke reshape event
+
+	glutPostRedisplay(); //=> Idle func을 쓰면 시스템에 무리가 가기 때문에 이걸 써서 함수 호출때만 유동적으로 받게 한다
+}
+//void setCamera(){
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//float asp = float(h) / w;//종횡비를 구한다
+	glOrtho(-range * aspRatio + dx, range * aspRatio + dx, -range, range, -2, 2);//종횡비를left, right부분에 범위만큼 곱해준다(비례해서 좌표계가늘어나넓게보임
+	gluPerspective(60, aspRatio, 0.1, 1000);
+}//
+void setCamera(){
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//float asp = float(h) / w;//종횡비를 구한다
+	gluPerspective(60, aspRatio, 0.1, 1000);
+
+}
+void reshape(int w, int h){
+	aspRatio = float(w) / h;
+	setCamera();
+	glViewport(0, 0, w, h);
+
+}
+void display(){
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(0, 0, 3, 0, 0, 0, 0, 1, 0);
+
+	glClear(GL_COLOR_BUFFER_BIT);
+	glPointSize(5);
+	glBegin(GL_POLYGON);
+	static float x = -1.0;
+	float y = x*x;
+	glColor3f(x, y, y - x);
+	glVertex3f(-0.5, 0, 0);
+	glColor3f(0.1 + x, y, y - x);
+	glVertex3f(0.25, 0, 0);
+	glColor3f(x, 0.1 + y, y - x);
+	glVertex3f(0.25, 0.5, 0);
+	glColor3f(x, 0.1 + y, y - x);
+	glVertex3f(-0.5, 0.5, 0);
+	//glColor3f(x, y, y-x);
+	//glVertex3f(x, y, 0);
+	x += 0.0001;
+	if (x > 1.0) x -= 2.0;
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0 + x, 1.0 - y, 1.0 + y - x);
+	glVertex3f(-0.1, 0.3, 0.0);
+	glColor3f(0.0 + y, 0.0 + x, 0.0 + x + y);
+	glVertex3f(-0.1, 0.4, 0.0);
+	glColor3f(0.0 + x, 0.0 + y, 0.0 + 2 * x + y);
+	glVertex3f(0.8, 0.5, 0.0);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	int n = 100;
+	float r = 0.25;
+
+	float angle = 0, step = (3.14159*2.0) / n;
+
+	while (angle < 3.14159*2.0){
+		glColor3f(0 + cos(angle) - 0.5 + x, 0 + r*sin(angle) + y, cos(angle) - 0.5 + r*sin(angle) + x + y);
+		glVertex2f(r*cos(angle) - 0.5, r*sin(angle));
+		angle += step;
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	//int n = 100;
+	float r = 0.25;//
+
+	float angle2 = 0;
+	// step = (3.14159*2.0) / n;
+
+	while (angle2 < 3.14159*2.0){
+		glColor3f(0 + cos(angle2) - 0.5 + x, 0 + r*sin(angle2) + y, cos(angle2) - 0.5 + r*sin(angle2) + x + y);
+		glVertex2f(r*cos(angle2) + 0.25, r*sin(angle2));
+		angle2 += step;
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	//int n = 100;
+	float r = 0.25;//
+
+	float angle3 = 0;
+	// step = (3.14159*2.0) / n;
+
+	while (angle3 < 3.14159*2.0){
+		glColor3f(0 + cos(angle3) - 0.5 + x, 0 + r*sin(angle3) + y, cos(angle3) - 0.5 + r*sin(angle3) + x + y);
+		glVertex2f(r*cos(angle3)*1.5 - 0.125, r*sin(angle3)*0.5 + 0.5);
+		angle3 += step;
+	}
+	glEnd();
+
+
+
+	//glFlush();
+	glutSwapBuffers();
+}
+*/
+// parameters for camera lens
+/*float range = 1.0;
+float aspRatio = 1.0;
+float dX = 0.0;
+float Cam_Angle = 60;
+void SetCamera() {
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	//glOrtho(-aspRatio * range + dX, aspRatio * range + dX, -range, range, -2, 2);
+	gluPerspective(Cam_Angle, aspRatio, 0.1, 1000);
+}
+
+void reshape(int w, int h) {
+	aspRatio = float(w) / h;
+	SetCamera();
+	glViewport(0, 0, w, h);
+}
+
+void keyboard(unsigned char c, int, int) {
+	if (c == 'w') Cam_Angle -= 2;//range *= 0.9;
+	if (c == 's') Cam_Angle += 2;//range *= 1.1;
+	if (c == 'a') dX -= 0.1;
+	if (c == 'd') dX += 0.1;
+	SetCamera();
+	glutPostRedisplay();
+}
+
+void drawCircle(
+	float radius, float dx, float dy, int nPoints = 100) {
+	float angle = 0.0;
+	float twopi = 3.14*2.0;
+	float angleStep = twopi / nPoints;
+
+	glBegin(GL_POLYGON);
+	// vertices
+	for (int i = 0; i < nPoints; i++) {
+		glVertex3f(radius*cos(angle) + dx, radius*sin(angle) + dy, 0);
+		angle += angleStep;
+	}
+	glEnd();
+}
+
+void display() {
+
+	// world
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(0, 0, 3,
+			  0, 0, 0,
+			  0, 1, 0);
+
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	static float angle = 0.0;
+	glRotatef(angle, 0, 1, 0);
+	angle += 1;
+
+	glColor3f(1, 0, 0);
+	for (float z = 0.0; z < 1.0; z += 0.1) {
+		glBegin(GL_LINE_LOOP);
+		glVertex3f(-0.5, 0.5, -z);
+		glVertex3f(-0.5, -0.5, -z);
+		glVertex3f(0.5, -0.5, -z);
+		glVertex3f(0.5, 0.5, -z);
+		glEnd();
+	}
+
+
+	glutSwapBuffers();
+
+}*/
+void keyboard(unsigned char c, int, int) {
+	if (c == 'w');
+}
+
+void drawCircle(
+	float radius, float dx, float dy, int nPoints = 100) {
+	float angle = 0.0;
+	float twopi = 3.14*2.0;
+	float angleStep = twopi / nPoints;
+
+	glBegin(GL_POLYGON);
+	// vertices
+	for (int i = 0; i < nPoints; i++) {
+		glVertex3f(radius*cos(angle) + dx, radius*sin(angle) + dy, 0);
+		angle += angleStep;
+	}
+	glEnd();
+}
+
+
+void display() {
+
+
+	glClear(GL_COLOR_BUFFER_BIT);
+
+
+	glColor3f(1, 0, 0);
+	drawCircle(0.05, -0.25, -0.25, 360);
+
+
+	glutSwapBuffers();
+
+}
+
+int main(int argc, char **argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("I Love Graphics");
+	glutDisplayFunc(display);
+	glutIdleFunc(display);
+	glutKeyboardFunc(keyboard);
+
+	glClearColor(1, 1, 1, 1);
+
+	glutMainLoop();
+	return 1;
+}

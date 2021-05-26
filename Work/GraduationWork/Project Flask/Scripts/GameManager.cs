@@ -96,9 +96,11 @@ public class GameManager : MonoBehaviour
     {
         RoundNum = 0;
         bMapChack = new bool[5];
-        Selected[0] = new SelectData(null, 0, "Keyboard", InputSystem.devices[0], "Ch_roundFlask");
-        Selected[1] = new SelectData(null, 1, "XInputControllerWindows", InputSystem.devices[2], "Ch_roundFlask");//디버깅용
-
+        if (!Selected[0].IsActive())
+        {
+            Selected[0] = new SelectData(null, 0, "Keyboard", InputSystem.devices[0], "Ch_roundFlask");
+            Selected[1] = new SelectData(null, 1, "XInputControllerWindows", InputSystem.devices[2], "Ch_roundFlask");//디버깅용
+        }
         Gamestartflg = true;
         GamePauseflg = true;
         Tutorialchkflg = false;

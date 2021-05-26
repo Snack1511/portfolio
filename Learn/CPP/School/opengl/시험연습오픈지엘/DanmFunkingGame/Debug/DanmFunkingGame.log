@@ -1,0 +1,6 @@
+﻿  main.cpp
+  AI.cpp
+d:\visualstudio\시험연습오픈지엘\danmfunkinggame\ai.cpp(18): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+  코드를 생성하고 있습니다...
+  DanmFunkingGame.vcxproj -> D:\visualstudio\시험연습오픈지엘\Debug\DanmFunkingGame.exe
+  DanmFunkingGame.vcxproj -> D:\visualstudio\시험연습오픈지엘\Debug\DanmFunkingGame.pdb (Full PDB)

@@ -1,0 +1,132 @@
+
+#include <Windows.h>
+#define GLUT_DISABLE_ATEXIT_HACK
+#include <gl/GL.h>
+#include <gl/glut.h>
+#include <stdio.h>
+#include <math.h>
+
+
+/*void myDisplay() {
+glClear(GL_COLOR_BUFFER_BIT);
+glFlush();
+}*/
+
+
+/*void display(){
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glPointSize(5);
+	glBegin(GL_TRIANGLES);
+	static float x = -1.0;
+	float y = x*x;
+	glColor3f(x, y, y - x);
+	glVertex3f(0 + x, 0 + y, 0);
+	glColor3f(0.1 + x, y, y - x);
+	glVertex3f(0.2 + x, 0 + y, 0);
+	glColor3f(x, 0.1 + y, y - x);
+	glVertex3f(0 + x, 0.2 + y, 0);
+	glColor3f(x, y, y-x);
+	glVertex3f(x, y, 0);
+	x += 0.0001;
+	if (x > 1.0) x -= 2.0;
+
+
+
+	glEnd();
+
+	glFlush();
+}*/
+
+void display(){
+	glClear(GL_COLOR_BUFFER_BIT);
+	glPointSize(5);
+	glBegin(GL_POLYGON);
+	static float x = -1.0;
+	float y = x*x;
+	glColor3f(x, y, y - x);
+	glVertex3f(-0.5 , 0 , 0);
+	glColor3f(0.1 + x, y, y - x);
+	glVertex3f(0.25, 0, 0);
+	glColor3f(x, 0.1 + y, y - x);
+	glVertex3f(0.25, 0.5, 0);
+	glColor3f(x, 0.1 + y, y - x);
+	glVertex3f(-0.5, 0.5, 0);
+	/*glColor3f(x, y, y-x);
+	glVertex3f(x, y, 0);*/
+	x += 0.0001;
+	if (x > 1.0) x -= 2.0;
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0+x, 1.0-y, 1.0+y-x);
+	glVertex3f(-0.1, 0.3, 0.0);
+	glColor3f(0.0+y, 0.0+x, 0.0+x+y);
+	glVertex3f(-0.1, 0.4, 0.0);
+	glColor3f(0.0+x, 0.0+y, 0.0+2*x+y);
+	glVertex3f(0.8, 0.5, 0.0);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	int n = 100;
+	float r = 0.25 ;
+	
+	float angle = 0, step = (3.14159*2.0) / n;
+
+	while (angle < 3.14159*2.0){
+		glColor3f(0 + cos(angle) - 0.5+x, 0 + r*sin(angle)+y, cos(angle) - 0.5 + r*sin(angle)+x+y);
+		glVertex2f(r*cos(angle)-0.5, r*sin(angle));
+		angle += step;
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	/*int n = 100;
+	float r = 0.25;*/
+
+	float angle2 = 0;
+	// step = (3.14159*2.0) / n;
+
+	while (angle2 < 3.14159*2.0){
+		glColor3f(0 + cos(angle2) - 0.5 + x, 0 + r*sin(angle2) + y, cos(angle2) - 0.5 + r*sin(angle2) + x + y);
+		glVertex2f(r*cos(angle2) + 0.25, r*sin(angle2));
+		angle2 += step;
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	/*int n = 100;
+	float r = 0.25;*/
+
+	float angle3 = 0;
+	// step = (3.14159*2.0) / n;
+
+	while (angle3 < 3.14159*2.0){
+		glColor3f(0 + cos(angle3) - 0.5 + x, 0 + r*sin(angle3) + y, cos(angle3) - 0.5 + r*sin(angle3) + x + y);
+		glVertex2f(r*cos(angle3)*1.5-0.125, r*sin(angle3)*0.5+0.5);
+		angle3 += step;
+	}
+	glEnd();
+	
+
+
+	glFlush();
+}
+
+
+int main(int argc, char **argv) {
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
+	glutInitWindowPosition(0, 0);
+	glutInitWindowSize(512, 512);
+	glutCreateWindow("ÃÖ¹ÎÁ¦ 15110220");
+
+
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glutDisplayFunc(display);
+	glutIdleFunc(display);
+	glutMainLoop();
+
+	return 0;
+}

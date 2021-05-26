@@ -1,0 +1,20 @@
+﻿  Stage.cpp
+  ObjFactory.cpp
+  Collision.cpp
+  Bullet.cpp
+  Generating Code...
+  Compiling...
+  StateObj.cpp
+  StateMgr.cpp
+  Player.cpp
+  Obj.cpp
+  Monster.cpp
+  Menu.cpp
+  MainGame.cpp
+  main.cpp
+  Logo.cpp
+  DoubleBuffer.cpp
+d:\자료\프로그래밍\sbs아카데미\3단계\나의코드\interface(stage빼고 다함)\interface\doublebuffer.cpp(21): warning C4838: conversion from 'const int' to 'SHORT' requires a narrowing conversion
+  Generating Code...
+  Interface.vcxproj -> D:\자료\프로그래밍\SBS아카데미\3단계\나의코드\Interface(Stage빼고 다함)\Debug\Interface.exe
+  Interface.vcxproj -> D:\자료\프로그래밍\SBS아카데미\3단계\나의코드\Interface(Stage빼고 다함)\Debug\Interface.pdb (Full PDB)

@@ -5,14 +5,13 @@ using UnityEngine;
 public class Melee : Weapon
 {
     //무기의 데이터를 플레이어에게 복사
-    
     private void Awake()
     {
         
     }
     private void Start()
     {
-        InitWeapon(ITEMTYPE.ITEM, WeaponType.SWORD, 1, 0.5f, 25f);
+        InitWeapon("Dummy", ITEMTYPE.ITEM, WeaponType.SWORD, 1, 0.5f, 25f);
         ResetWeapon();
 
 
@@ -144,14 +143,12 @@ public class Melee : Weapon
             rigid.Sleep();
             tag = ChangeTag(ITEMTYPE.WEAPON);
             transform.GetChild(0).tag = tag;
-            //rigid.useGravity = false;
-            //GetComponentInChildren<BoxCollider>().isTrigger = true;
             ResetWeapon_Value();
             GetItem(other.gameObject);
-            WData.Setname(Owner);
-            PlayerCalculate.script.GetPlayerData().ConfirmWeaponData(WData);
+            WData.OWNER = Owner;
+            //PlayerCalculate.script.GetPlayerData().ConfirmWeaponData(WData);
             PlayerCalculate.WT = WData.WT;
-            //PlayerCalculate.script.GetPlayerData().SetAttackValue(Dmg, StunTime, Knockbackforce);
+            
             bIsCollision = false;
             
         }
@@ -165,6 +162,10 @@ public class Melee : Weapon
             ResetWeapon_Value(true);
             //IsTouchLimitHeight = true;
         }
+    }
+    public CWeaponData GetWeapondata()
+    {
+        return WData;
     }
 }
 

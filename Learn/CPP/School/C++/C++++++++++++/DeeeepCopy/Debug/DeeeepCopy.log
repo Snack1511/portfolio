@@ -1,0 +1,15 @@
+﻿  Person.cpp
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(8): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(16): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(29): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(32): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(40): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+c:\users\snacklap\documents\visual studio 2015\projects\c++++++++++++\deeeepcopy\person.cpp(43): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+  DeeeepCopy.vcxproj -> C:\Users\snacklap\documents\visual studio 2015\Projects\C++++++++++++\Debug\DeeeepCopy.exe
+  DeeeepCopy.vcxproj -> C:\Users\snacklap\documents\visual studio 2015\Projects\C++++++++++++\Debug\DeeeepCopy.pdb (Full PDB)

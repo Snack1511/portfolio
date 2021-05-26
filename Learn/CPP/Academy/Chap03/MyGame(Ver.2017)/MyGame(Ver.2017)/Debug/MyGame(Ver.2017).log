@@ -1,0 +1,21 @@
+﻿  BackGround.cpp
+  Collision.cpp
+  DoubleBuffer.cpp
+F:\MyGit\MyPortfolio\Learn\CPP\Academy\Chap03\MyGame\MyGame\DoubleBuffer.cpp(10,17): warning C4838: 'const int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+F:\MyGit\MyPortfolio\Learn\CPP\Academy\Chap03\MyGame\MyGame\DoubleBuffer.cpp(10,25): warning C4838: 'const int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+  KeyMgr.cpp
+  Logo.cpp
+  Main.cpp
+  MainGame.cpp
+  Menu.cpp
+  ObjMgr.cpp
+  Player.cpp
+  SceneMgr.cpp
+  SceneObj.cpp
+  Stage.cpp
+  코드를 생성하고 있습니다...
+BackGround.obj : error LNK2019: "public: __thiscall Obj::Obj(void)" (??0Obj@@QAE@XZ)"public: __thiscall BackGround::BackGround(void)" (??0BackGround@@QAE@XZ) 함수에서 참조되는 확인할 수 없는 외부 기호
+Player.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: __thiscall Obj::Obj(void)" (??0Obj@@QAE@XZ)
+BackGround.obj : error LNK2019: "public: virtual __thiscall Obj::~Obj(void)" (??1Obj@@UAE@XZ)__unwindfunclet$??0BackGround@@QAE@XZ$0 함수에서 참조되는 확인할 수 없는 외부 기호
+Player.obj : error LNK2001: 확인할 수 없는 외부 기호 "public: virtual __thiscall Obj::~Obj(void)" (??1Obj@@UAE@XZ)
+F:\MyGit\MyPortfolio\Learn\CPP\Academy\Chap03\MyGame(Ver.2017)\Debug\MyGame(Ver.2017).exe : fatal error LNK1120: 2개의 확인할 수 없는 외부 참조입니다.

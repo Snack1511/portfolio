@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\99.Manager">
+      <UniqueIdentifier>{07d7d7f5-37af-440d-ab30-e4bf13fdb9a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\99.Manager\DoubleBuffer">
+      <UniqueIdentifier>{42449277-52a8-4eb4-8676-343bb2de7f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\00.MainGame">
+      <UniqueIdentifier>{5571a652-ede9-4876-a7d4-0c4fa873afbc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\99.Manager\KeyMgr">
+      <UniqueIdentifier>{39c86540-01a4-46e1-ae67-87fa2b6862a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\99.Manager\ObjMgr">
+      <UniqueIdentifier>{0e61de81-abaf-4d2e-8cee-183f19533280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01.Object">
+      <UniqueIdentifier>{a2f32ade-4c50-47e8-a2c2-eadb0464a45c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\01.Object\BackGround">
+      <UniqueIdentifier>{c3ce0dc6-ba3a-45ed-9973-3b798b9826d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\99.Manager\Astar">
+      <UniqueIdentifier>{e969507b-72d8-48f5-a2a1-50c4c8f3c546}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
+      <Filter>Source Files\99.Manager\DoubleBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>Source Files\00.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>Source Files\99.Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMgr.h">
+      <Filter>Source Files\99.Manager\ObjMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>Source Files\01.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Source Files\01.Object\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Astar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>Source Files\99.Manager\DoubleBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>Source Files\00.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>Source Files\99.Manager\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMgr.cpp">
+      <Filter>Source Files\99.Manager\ObjMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files\01.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Source Files\01.Object\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Astar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

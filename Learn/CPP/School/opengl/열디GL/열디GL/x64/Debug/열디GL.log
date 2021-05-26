@@ -1,0 +1,4 @@
+﻿  과제용.cpp
+c:\users\snacklap\documents\visual studio 2015\projects\열디gl\열디gl\과제용.cpp(12): warning C4305: '+=': truncation from 'double' to 'float'
+  열디GL.vcxproj -> c:\users\snacklap\documents\visual studio 2015\Projects\열디GL\x64\Debug\열디GL.exe
+  열디GL.vcxproj -> c:\users\snacklap\documents\visual studio 2015\Projects\열디GL\x64\Debug\열디GL.pdb (Full PDB)

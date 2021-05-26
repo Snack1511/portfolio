@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Include">
+      <UniqueIdentifier>{6a72fb13-1fce-483b-853d-32355715624d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers">
+      <UniqueIdentifier>{7fcf8eed-3f05-4c2d-a725-01b1a6d96f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Headers\ObjFactory">
+      <UniqueIdentifier>{619c8dfa-0186-49c3-8359-000debe981d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Object">
+      <UniqueIdentifier>{402c5967-8a6d-472b-aed6-3240abdf3199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager">
+      <UniqueIdentifier>{ab71fcb8-83af-4dc1-9406-1682a84ff617}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\DoubleBuffer">
+      <UniqueIdentifier>{887e8303-6510-485f-b0de-25dd7ff5a97d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\AStar">
+      <UniqueIdentifier>{c8b4cc3d-fcd7-410b-bc47-6c6f02013ef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Object\Dynamic">
+      <UniqueIdentifier>{64a47839-3c35-4fb4-ba74-3082eee02233}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Object\Dynamic\Cursor">
+      <UniqueIdentifier>{2dafb0f6-b5e0-4ce2-9064-375084ab86d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\01.Object\02. BackGround">
+      <UniqueIdentifier>{905422d5-6276-4f7b-87d9-eaf08b1f11b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00.MainGame">
+      <UniqueIdentifier>{b28f8a50-1ccc-4bc1-8bcf-09bf93fdeb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\KeyMgr">
+      <UniqueIdentifier>{1c1838f6-6091-49d4-9fb3-c27cb64a077d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\99. Manager\ObjMgr">
+      <UniqueIdentifier>{9e0fcde0-82b5-4cde-b6fa-76dcba00515e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>소스 파일\00.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj.cpp">
+      <Filter>소스 파일\01.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일\01.Object\02. BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor.cpp">
+      <Filter>소스 파일\01.Object\Dynamic\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>소스 파일\99. Manager\DoubleBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>소스 파일\99. Manager\AStar</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic.cpp">
+      <Filter>소스 파일\01.Object\Dynamic</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>소스 파일\99. Manager\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjMgr.cpp">
+      <Filter>소스 파일\99. Manager\ObjMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>소스 파일\00.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="CObjFactory.h">
+      <Filter>소스 파일\99. Headers\ObjFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj.h">
+      <Filter>소스 파일\01.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>소스 파일\01.Object\02. BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Cursor.h">
+      <Filter>소스 파일\01.Object\Dynamic\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
+      <Filter>소스 파일\99. Manager\DoubleBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>소스 파일\99. Manager\AStar</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic.h">
+      <Filter>소스 파일\01.Object\Dynamic</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>헤더 파일\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>소스 파일\99. Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjMgr.h">
+      <Filter>소스 파일\99. Manager\ObjMgr</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

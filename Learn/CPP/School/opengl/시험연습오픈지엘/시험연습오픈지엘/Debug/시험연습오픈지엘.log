@@ -1,0 +1,11 @@
+﻿  main.cpp
+d:\visualstudio\시험연습오픈지엘\시험연습오픈지엘\main.cpp(18): warning C4305: '-=': 'double'에서 'GLfloat'(으)로 잘립니다.
+d:\visualstudio\시험연습오픈지엘\시험연습오픈지엘\main.cpp(19): warning C4305: '+=': 'double'에서 'GLfloat'(으)로 잘립니다.
+d:\visualstudio\시험연습오픈지엘\시험연습오픈지엘\main.cpp(44): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+d:\visualstudio\시험연습오픈지엘\시험연습오픈지엘\main.cpp(45): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+d:\visualstudio\시험연습오픈지엘\시험연습오픈지엘\main.cpp(48): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  LightEx.cpp
+  Camera.cpp
+  코드를 생성하고 있습니다...
+  시험연습오픈지엘.vcxproj -> D:\visualstudio\시험연습오픈지엘\Debug\시험연습오픈지엘.exe
+  시험연습오픈지엘.vcxproj -> D:\visualstudio\시험연습오픈지엘\Debug\시험연습오픈지엘.pdb (Full PDB)

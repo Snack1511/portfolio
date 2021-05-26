@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Obj">
+      <UniqueIdentifier>{9c58a0b0-6610-466d-8228-f31c02ada78d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RootSystem">
+      <UniqueIdentifier>{40c1ff45-e987-45e7-842f-1b50250466aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RootSystem\MainGame">
+      <UniqueIdentifier>{213dc7cf-5f29-475e-8ef3-4ff26862d336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RootSystem\Doublebuffer">
+      <UniqueIdentifier>{5df0e167-0c68-4b13-9233-81d281aacc4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{ad0aa2f2-b63b-4636-8364-369291030f7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Logo">
+      <UniqueIdentifier>{4542424c-b174-4a2f-a6ac-5f43695179f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Menu">
+      <UniqueIdentifier>{eaa3111e-2da5-45cf-aa04-91d51d9138a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\State\Stage">
+      <UniqueIdentifier>{24b2d29b-446c-4f57-b1ff-377d01f31681}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Manage">
+      <UniqueIdentifier>{6dc254ae-925c-4355-97df-c27da971e8c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Monster">
+      <UniqueIdentifier>{f09bc432-c187-4a70-ba74-7fb118b6e792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\Player">
+      <UniqueIdentifier>{073f1b36-2374-4d28-a389-1432984ab354}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Manage\ObjFactory">
+      <UniqueIdentifier>{92b18af0-6886-4515-b600-e386a347ca1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Obj\bullet">
+      <UniqueIdentifier>{17b40253-bac7-4792-bdcd-d17ed8b0e0b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RootSystem\CollisionMgr">
+      <UniqueIdentifier>{fef33f80-d76c-49af-8158-be35bea4fc7c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Obj.h">
+      <Filter>Source Files\Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
+      <Filter>Source Files\RootSystem\Doublebuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>Source Files\RootSystem\MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="StateObj.h">
+      <Filter>Source Files\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Source Files\State\Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo.h">
+      <Filter>Source Files\State\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Source Files\State\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMgr.h">
+      <Filter>Source Files\Manage</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Source Files\Obj\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Obj\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjFactory.h">
+      <Filter>Source Files\Manage\ObjFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Source Files\Obj\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Obj.cpp">
+      <Filter>Source Files\Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>Source Files\RootSystem\Doublebuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp">
+      <Filter>Source Files\RootSystem\MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="StateObj.cpp">
+      <Filter>Source Files\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Source Files\State\Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo.cpp">
+      <Filter>Source Files\State\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\State\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMgr.cpp">
+      <Filter>Source Files\Manage</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>Source Files\Obj\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Obj\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjFactory.cpp">
+      <Filter>Source Files\Manage\ObjFactory</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files\Obj\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -33,8 +33,9 @@ public class Player_Cal : MonoBehaviour
     Transform Tr;
     Rigidbody Rigid;
     PlayerSet AttByEnemy;
-    CWeaponData Dummy;
+    CWeaponData WeaponData;
     Control control;
+    GameObject Slots;
     Vector3 MoveDir;
     Vector3 AttactedDir;//없어도 될거 같음
     //차후 수정 필요
@@ -143,6 +144,7 @@ public class Player_Cal : MonoBehaviour
         Rigid = GetComponent<Rigidbody>();
         Tr = script.GetTr();
         Speed = script.GetPlayerData().SPD;
+        Slots = Tr.GetChild(2).GetChild(1).gameObject;
         
     }
     //초기화 -> 게임시작시 동작
@@ -225,19 +227,22 @@ public class Player_Cal : MonoBehaviour
                 ToWeaponAttDir = control.AimDir;
                 bThrowflg = true;
                 script.GetPlayerData().ResetAttackValue();
+                Slots.GetComponent<SlotScript>().ReleaseSlot();
             }
-        }bThrowControlAnim = false;
+        }
+        bThrowControlAnim = false;
+        
     }
     //투척
     void Cal_Attacked() {
         if (bHitflg)
         {
-            if (Dummy != null)
+            if (WeaponData != null)
             {
-                Move_KnockBack(AttByEnemy, Dummy);
-                State_Stun(Dummy.STUNTIME);
+                Move_KnockBack(AttByEnemy, WeaponData);
+                State_Stun(WeaponData.STUNTIME);
                 State_Invicibility();
-                Cal_Dmg(Dummy.DMG);
+                Cal_Dmg(WeaponData.DMG);
             }
             else
             {
@@ -336,15 +341,19 @@ public class Player_Cal : MonoBehaviour
 
     void CheckItem(GameObject obj)
     {
-        if (obj.tag == "ITEM")
+        
+        if (RightHandTr.childCount == 0)
         {
-            if (RightHandTr.childCount == 0)
-            {
-                RightHandTr.tag = RightHandTr.parent.tag;
-                control.haveWeapon = true;
-                bIsTouchItem = true;
-            }
+            RightHandTr.tag = RightHandTr.parent.tag;
+            control.haveWeapon = true;
+            bIsTouchItem = true;
+            WeaponData = obj.GetComponent<Melee>().GetWeapondata();
+            Slots.GetComponent<SlotScript>().FillSlot(WeaponData.GetName());
+            Slots.SetActive(true);
+
+
         }
+
     }
 
     public void SetHitflg(bool flg) {
@@ -372,13 +381,13 @@ public class Player_Cal : MonoBehaviour
     public void SetEnemy(string Enemy = null, bool flg = false, CWeaponData WD = null) {
         if (flg)
         {
-            Dummy = WD;
+            WeaponData = WD;
             AttByEnemy = GameObject.Find(WD.OWNER).GetComponent<PlayerSet>();
             Debug.Log(name + "AttByEnemy : " + AttByEnemy.name);
         }
         else
         {
-            Dummy = null;
+            WeaponData = null;
             AttByEnemy = GameObject.Find(Enemy).GetComponent<PlayerSet>();
             Debug.Log(name + "AttByEnemy : " + AttByEnemy.name);
         }

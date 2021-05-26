@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (let'stry.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  indexed facced model.cpp
+d:\projects\열디gl\let'stry\indexed facced model.cpp(71): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+  let'stry.vcxproj -> D:\Projects\열디GL\Debug\letstry.exe
+  let'stry.vcxproj -> D:\Projects\열디GL\Debug\letstry.pdb (Full PDB)
