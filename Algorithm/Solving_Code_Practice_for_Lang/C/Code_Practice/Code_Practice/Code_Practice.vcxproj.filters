@@ -15,31 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="17-1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="17-2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="18-1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="18-2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="18-3.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="19-1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="19-2.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20-1.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="20-2.c">
+    <ClCompile Include="practice01.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

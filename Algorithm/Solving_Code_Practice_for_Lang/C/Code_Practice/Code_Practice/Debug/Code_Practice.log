@@ -1,3 +1,2 @@
-﻿  16-2.c
-F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\16-2.c(12,15): warning C4013: 'strlen'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
-F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\16-2.c(22): error C4700: 초기화되지 않은 'i' 지역 변수를 사용했습니다.
+﻿  practice01.c
+  Code_Practice.vcxproj -> F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Debug\Code_Practice.exe

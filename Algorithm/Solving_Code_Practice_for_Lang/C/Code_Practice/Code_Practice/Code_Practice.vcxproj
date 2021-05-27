@@ -19,15 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="17-1.c" />
-    <ClCompile Include="17-2.c" />
-    <ClCompile Include="18-1.c" />
-    <ClCompile Include="18-2.c" />
-    <ClCompile Include="18-3.c" />
-    <ClCompile Include="19-1.c" />
-    <ClCompile Include="19-2.c" />
-    <ClCompile Include="20-1.c" />
-    <ClCompile Include="20-2.c" />
+    <ClCompile Include="practice01.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
