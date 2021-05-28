@@ -1,2 +1,3 @@
-﻿  practice01.c
+﻿  practice02.c
+F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Code_Practice\practice02.c(13,31): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   Code_Practice.vcxproj -> F:\MyGit\MyPortfolio\Algorithm\Solving_Code_Practice_for_Lang\C\Code_Practice\Debug\Code_Practice.exe
