@@ -341,14 +341,15 @@ public class Player_Cal : MonoBehaviour
 
     void CheckItem(GameObject obj)
     {
-        if (RightHandTr.childCount == 0)
+        
+        if (!control.bHaveWeapon&&RightHandTr.childCount == 0)
         {
             RightHandTr.tag = RightHandTr.parent.tag;
-            control.bHaveWeapon = true;
             bIsTouchItem = true;
             WeaponData = obj.GetComponent<Melee>().GetWeapondata();
-            Slots.GetComponent<SlotScript>().FillSlot(WeaponData.GetName());
+            Slots.GetComponent<SlotScript>().FillSlot(obj.GetComponent<Melee>().GetItemType());
             Slots.SetActive(true);
+            control.bHaveWeapon = true;
         }
 
     }

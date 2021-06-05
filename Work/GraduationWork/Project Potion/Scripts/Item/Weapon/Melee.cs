@@ -167,5 +167,9 @@ public class Melee : Weapon
     {
         return WData;
     }
+    public ITEMTYPE GetItemType()
+    {
+        return Type;
+    }
 }
 
