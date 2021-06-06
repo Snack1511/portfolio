@@ -29,14 +29,15 @@ public class SlotScript : MonoBehaviour
 
     void InitSlots(int n)
     {
-        if(Imgs.Count <= 3)
+        /*if(Imgs.Count <= 3)
         {
             //Imgs.Add(Resources.Load<Sprite>("UISprite/SlotImg/"));
             Imgs.Add(Resources.Load<Sprite>("UISprite/RobbySceneUI/Icon_NULL"));
             Imgs.Add(Resources.Load<Sprite>("UISprite/RobbySceneUI/Icon_NULL"));
             Imgs.Add(Resources.Load<Sprite>("UISprite/RobbySceneUI/Icon_NULL"));
             Imgs.Add(Resources.Load<Sprite>("UISprite/RobbySceneUI/Icon_NULL"));
-        }
+            //얼마나 추가될 지 모름
+        }*/
         for(int i = 0; i < n; i++)
         {
             SetSlot(i);
@@ -49,7 +50,7 @@ public class SlotScript : MonoBehaviour
         Slots[n].transform.SetParent(gameObject.transform);
         Slots[n].AddComponent<SlotInfo>().index = n;
         Slots[n].GetComponent<SlotInfo>().SetSlotInfo();
-        Slots[n].GetComponent<Image>().sprite = SetTagImg(ITEMTYPE.NONE);
+        //Slots[n].GetComponent<Image>().sprite = SetTagImg(ITEMTYPE.NONE);
         Slots[n].name = "Slot" + n;
         /*Slots[n].AddComponent<RectTransform>().anchoredPosition3D = new Vector3(n - 1, 3, 0);
         Slots[n].GetComponent<RectTransform>().sizeDelta = new Vector2(1, 1);
@@ -57,18 +58,17 @@ public class SlotScript : MonoBehaviour
         //Slots[n].SetActive(false);
         
     }
-    public void FillSlot(ITEMTYPE Type)
+    public void FillSlot(Sprite Img)
     {
         //str로 이름받아서 아이콘 불러올수 있게
         //Slots[idx].GetComponent<Image>().sprite = SetTagImg(Type);
-        Slots[idx].GetComponent<Image>().sprite = SetTagImg(ITEMTYPE.NONE);
+        Slots[idx].GetComponent<Image>().sprite = Img;
         Slots[idx].GetComponent<Image>().color = Color.red;
         Slots[idx].SetActive(true);
         idx++;
     }
     public void ReleaseSlot()
     {
-        Slots[idx].GetComponent<Image>().sprite = SetTagImg(ITEMTYPE.NONE);
         Slots[idx-1].GetComponent<Image>().color = Color.white;
         Slots[idx-1].SetActive(false);
         idx--;

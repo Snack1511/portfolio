@@ -13,16 +13,18 @@ public class CWeaponData
     float fDmg;
     float fStuntime;
     float fKnockforce;
+    Sprite TagImg;
     
     //bool bAttflg;
 
-    public CWeaponData(string name, string Owner, WeaponType _Type, float dmg, float stuntime, float knockforce) {
+    public CWeaponData(string name, string Owner, WeaponType _Type, float dmg, float stuntime, float knockforce, Sprite img) {
         strName = name;
         strOwner = Owner;
         Type = _Type;
         fDmg = dmg;
         fStuntime = stuntime;
         fKnockforce = knockforce;
+        TagImg = img;
         //bAttflg = false;
     }
 
@@ -37,6 +39,11 @@ public class CWeaponData
     public float KNOCKFORCE { get { return fKnockforce; } set { } }
     
     public WeaponType WT { get { return Type; } set { } }
+
+    public Sprite IMG
+    {
+        get { return TagImg; }
+    }
     //public bool ATTFLG { get { return bAttflg; } set { bAttflg = value; } }
     public CPlayer ReturnCPlayer() {
         CPlayer a = new CPlayer();

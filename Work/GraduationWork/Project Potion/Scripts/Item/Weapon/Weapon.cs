@@ -62,7 +62,7 @@ public abstract class Weapon : Item
 
     protected void InitWeapon(string name, ITEMTYPE Type, WeaponType weaponType, float _Dmg, float _Stuntime, float _Knockforce) {
         InitItem(Type, _Dmg);
-        WData = new CWeaponData(name, "", weaponType, _Dmg, _Stuntime, _Knockforce);
+        WData = new CWeaponData(name, "", weaponType, _Dmg, _Stuntime, _Knockforce, Resources.Load<Sprite>("UISprite/RobbySceneUI/Icon_NULL"));
         /*StunTime = _Stuntime;
         Knockbackforce = _Knockforce;*/
     }

@@ -34,7 +34,8 @@ public class SlotInfo : MonoBehaviour
 
     public void SetSlotInfo()
     {
-        RTr.anchoredPosition3D = new Vector3(index - 1, 3, 0);
+        RTr.anchoredPosition3D = new Vector3(index - 1, 0, 0);
+        RTr.Rotate(new Vector3(35, 0, 0), Space.Self);
         RTr.sizeDelta = new Vector2(1, 1);
     }
 }

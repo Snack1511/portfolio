@@ -347,7 +347,7 @@ public class Player_Cal : MonoBehaviour
             RightHandTr.tag = RightHandTr.parent.tag;
             bIsTouchItem = true;
             WeaponData = obj.GetComponent<Melee>().GetWeapondata();
-            Slots.GetComponent<SlotScript>().FillSlot(obj.GetComponent<Melee>().GetItemType());
+            Slots.GetComponent<SlotScript>().FillSlot(obj.GetComponent<Melee>().GetWeapondata().IMG);
             Slots.SetActive(true);
             control.bHaveWeapon = true;
         }

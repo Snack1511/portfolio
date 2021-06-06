@@ -29,6 +29,11 @@ public class Attack_ScriptAnim : StateMachineBehaviour
             animator.GetComponent<Player_AnimControl>().calculate.RightHandTr.parent.tag;
             animator.GetComponent<Player_AnimControl>().control.bAnim_Attflg = false;
         }
+        else
+        {
+
+            animator.GetComponent<Player_AnimControl>().control.bAnim_Attflg = false;
+        }
     }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
