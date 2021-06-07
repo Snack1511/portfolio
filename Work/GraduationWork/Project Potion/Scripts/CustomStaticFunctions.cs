@@ -63,5 +63,28 @@ namespace Custom
         }
     }
 
+    public class GetScheme
+    {
+        public static string GetSchemeDatas(string device)
+        {
+            if (device == "XInputControllerWindows")
+            {
+                return "Xbox";
+            }
+            else if (device == "Keyboard")
+            {
+                return "Keyboard";
+            }
+            else if (device == "DualShock4GamepadHID")
+            {
+                return "PS4";
+            }
+            else
+            {
+                return "";
+            }
+        }
+    }
+    
 
 }

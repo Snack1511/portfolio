@@ -83,7 +83,7 @@ public class CPlayer
         string str = "HP : " + fHp + "\n" + "DMG : " + fDmg + "\n" + "POINT : " + lstPoint + "\n" + "SPD : " + fSpeed + "\n";
         return str;
     }
-
+    
     public void CalTotalPoint(int n)
     {
         if (lstPoint.Count > 0)

@@ -20,6 +20,7 @@ public class PlayerSet : MonoBehaviour
     Player_Cal Cal;
     Control Con;
     PlayerRender Render;
+    PlayerManager PlayerMgr;
     public Rigidbody rigid;
     void Awake() {
         //Render = GetComponent<MeshRenderer>();
@@ -57,7 +58,7 @@ public class PlayerSet : MonoBehaviour
     private void OnDisable()
     {
         Debug.Log("Dead");
-        playerData.POINT = GameManager.GM.SetLeavePlayer();
+        playerData.POINT = GameManager.GM.PMGR.SetLeavePlayer();//튜토리얼맵에서 넘어갈땐 안뜨게
         playerData.CalTotalPoint(GameManager.GM.RoundNum);
         
     }

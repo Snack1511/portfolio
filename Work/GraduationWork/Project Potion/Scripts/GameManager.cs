@@ -7,19 +7,29 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
-    public const float Dist = 20;//플레이어 스폰 위치정보
     public static SelectData[] Selected = new SelectData[4];//플레이어 정보 담는 데이터
+    PlayerManager PlayerMgr;
+    public PlayerManager PMGR
+    {
+        get { return PlayerMgr; }
+    }
+    /*public const float Dist = 20;//플레이어 스폰 위치정보
     public int Leaveplayer;//남은 플레이어 수
-    public int RoundNum;//라운드 번호
-    public bool Gamestartflg;//시작 플레그
-    public bool GamePauseflg;//중지플레그
-    public bool Tutorialchkflg;//튜토리얼 확인 플레그
     public int PlayerCount = 0;//전체 플레이어 수
     PlayerSet[] PlayerDatas;
     public PlayerSet[] ReadPlyerDatas
     {
         get { return PlayerDatas; }
     }//
+    Vector3[] pos = {
+        new Vector3(-Dist, 3, 0), new Vector3(Dist, 3, 0), new Vector3(0, 3, -Dist), new Vector3(0, 3, Dist)
+    };
+    PlayerInput[] InputPlayers;
+    List<Player_Cal> PlayersCalculates = new List<Player_Cal>();
+    GameObject Winner;
+    */
+
+    public int RoundNum;//라운드 번호
     public bool ReadRoundCheck
     {
         get { return bRoundCheckflg; }
@@ -28,17 +38,16 @@ public class GameManager : MonoBehaviour
     {
         get { return bScoreboardCheckflg; }
     }
-    bool[] bMapChack;
     bool bRoundCheckflg = false;
     bool bScoreboardCheckflg = false;
-    Vector3[] pos = {
-        new Vector3(-Dist, 3, 0), new Vector3(Dist, 3, 0), new Vector3(0, 3, -Dist), new Vector3(0, 3, Dist)
-    };
-    GameObject Winner;
+    bool[] bMapChack;
+
+
+    public bool Gamestartflg;//시작 플레그
+    public bool GamePauseflg;//중지플레그
+    public bool Tutorialchkflg;//튜토리얼 확인 플레그
     GameObject MenuPanel;
     GameObject ScoreboardPanel;
-    PlayerInput[] InputPlayers;
-    List<Player_Cal> PlayersCalculates = new List<Player_Cal>();
     
     //List<PlayerInput> P_Input;
     // Start is called before the first frame update
@@ -99,25 +108,17 @@ public class GameManager : MonoBehaviour
         Gamestartflg = true;
         GamePauseflg = true;
         Tutorialchkflg = false;
-        InputPlayers = new PlayerInput[4];
-        PlayerDatas = new PlayerSet[4];
+        
         MenuPanel = transform.GetChild(0).gameObject;
         ScoreboardPanel = transform.GetChild(1).gameObject;
-        for (int i = 0; i < Selected.Length; i++)
+        PlayerMgr = new PlayerManager(Selected);
+        Debug.Log(PlayerMgr.InputPlayers[0].gameObject);
+        for (int i = 0; i < PlayerMgr.PlayerCount; i++)
         {
-          if (Selected[i].IsActive())
-            {
-                InputPlayers[i] = PlayerInput.Instantiate(Resources.Load<GameObject>("Prefabs/PlayerObj"), Selected[i].GetIndex(), GetScheme(Selected[i].GetDVName()), -1, Selected[i].GetInputDv());
-                InputPlayers[i].GetComponent<PlayerSet>().ModelName = Selected[i].GetName();
-                InputPlayers[i].GetComponent<PlayerSet>().ColorNum = Selected[i].GetIndex();
-                PlayerDatas[i] = InputPlayers[i].GetComponent<PlayerSet>();
-                PlayersCalculates.Add(InputPlayers[i].GetComponent<Player_Cal>());
-                DontDestroyOnLoad(InputPlayers[i].gameObject);
-                PlayerCount++;
-
-            }
+            DontDestroyOnLoad(PlayerMgr.InputPlayers[i].gameObject);
         }
         
+
         /*for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             //PlayersCalculates.Add(GameObject.FindGameObjectsWithTag("Player")[i].GetComponent<Player_Cal>());
@@ -129,7 +130,7 @@ public class GameManager : MonoBehaviour
     {
         MenuPanel.SetActive(false);
 
-        for (int i = 0; i < PlayerCount; i++)
+        /*for (int i = 0; i < PlayerCount; i++)
         {
             //Debug.Log(PlayersCalculates[i]);
             if (PlayersCalculates[i] != null)
@@ -139,33 +140,27 @@ public class GameManager : MonoBehaviour
                 PlayersCalculates[i].gameObject.SetActive(true);
             }
         }
-        Leaveplayer = 0;
+        Leaveplayer = 0;*/
         //RoundEndCheck();
+        PlayerMgr.ResetPlayerMgr();
         bRoundCheckflg = false;
         bScoreboardCheckflg = false;
 
 
     }
-    public int SetLeavePlayer()
+    /*public int SetLeavePlayer()
     {
         Leaveplayer++;
         return PlayerCount - (Leaveplayer - 1);
-
-    }
+    }*/
     void RoundEndCheck() {
         //Leaveplayer = Players.Count;
-        if (Leaveplayer >= PlayerCount - 1)
+        if (PlayerMgr.IsLeaveBiggerThanPlayer())
         {
+            Debug.Log("Hello");
             if (!bRoundCheckflg)
             {
-                for (int i = 0; i < PlayerCount; i++)
-                {
-                    if (PlayersCalculates[i].gameObject.activeSelf)
-                    {
-                        PlayerDatas[i].GetPlayerData().POINT = 1;
-                        PlayerDatas[i].GetPlayerData().CalTotalPoint(RoundNum);
-                    }
-                }
+                PlayerMgr.GivePointToPlayer(RoundNum);
             }
             bRoundCheckflg = true;
             
@@ -236,50 +231,32 @@ public class GameManager : MonoBehaviour
             }
         }
         //씬전환 - 엔딩씬
-        Debug.Log("Winner is " + Winner.name);
+        Debug.Log("Winner is " + PlayerMgr.Winner.name);
     }
 
     void GameEndCheck() {
-        Gamestartflg = GetWinner();
+        Gamestartflg = PlayerMgr.GetWinner();
         
     }
-    bool GetWinner()
+    /*bool GetWinner()
     {
         for(int i = 0; i < PlayerCount; i++)
         {
-            if(/*PlayerDatas[i] != null && */PlayerDatas[i].GetPlayerData().POINT >= 15)
+            if(PlayerDatas[i].GetPlayerData().POINT >= 15)
             {
                 Winner = PlayerDatas[i].gameObject;
                 return false;
             }
         }
         return true;
-    }
-    public string GetScheme(string device)
-    {
-        if (device == "XInputControllerWindows")
-        {
-            return "Xbox";
-        }
-        else if (device == "Keyboard")
-        {
-            return "Keyboard";
-        }
-        else if (device == "DualShock4GamepadHID")
-        {
-            return "PS4";
-        }
-        else
-        {
-            return "";
-        }
-    }
+    }*/
+    
 
     IEnumerator MenuOpen() {
 
         MenuPanel.SetActive(true);
         Time.timeScale = 0f;
-        while (InputNextButton(InputPlayers[0]) && GamePauseflg)
+        while (PlayerMgr.InputNextButton() && GamePauseflg)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -293,7 +270,7 @@ public class GameManager : MonoBehaviour
         
         
     }
-    bool InputNextButton(PlayerInput pInput)
+    /*bool InputNextButton(PlayerInput pInput)
     {
         if(pInput.currentControlScheme == "Keyboard")
         {
@@ -310,7 +287,7 @@ public class GameManager : MonoBehaviour
             }
         }
         return false;
-    }
+    }*/
     void ChangeMap(int n = 0)
     {
         int MapNum = Random.Range(0, 5);
