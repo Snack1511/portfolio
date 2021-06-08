@@ -16,19 +16,19 @@ public class ScoreboardScript : MonoBehaviour
         bPlayEnd = false;
         HeightMoveValue = new Vector3(0, Height + padding, 0);
         Gm = GameManager.GM;
-        for (int i = 1; i <= Gm.PMGR.PlayerCount; i++)
+        for (int i = 1; i <= Gm.ROUNDMGR.PMGR.PlayerCount; i++)
         {
             InitScoreMeter(i);
         }
     }
     private void OnEnable()
     {
-        if (GameManager.GM.ReadRoundCheck)
+        if (Gm.ROUNDMGR.ReadRoundCheck)
         {
             for (int i = 1; i <= Gm.PMGR.PlayerCount; i++)
             {
                 transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().SetData(
-                    Gm.RoundNum,
+                    Gm.ROUNDMGR.RoundNum,
                     Gm.PMGR.ReadPlyerDatas()[i-1].GetPlayerData().DEGREE,
                     Gm.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().POINT
                     );

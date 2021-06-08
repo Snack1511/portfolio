@@ -59,7 +59,7 @@ public class PlayerSet : MonoBehaviour
     {
         Debug.Log("Dead");
         playerData.POINT = GameManager.GM.PMGR.SetLeavePlayer();//튜토리얼맵에서 넘어갈땐 안뜨게
-        playerData.CalTotalPoint(GameManager.GM.RoundNum);
+        playerData.CalTotalPoint(GameManager.GM.ROUNDMGR.RoundNum);
         
     }
     public void OnTriggerEnter(Collider other)

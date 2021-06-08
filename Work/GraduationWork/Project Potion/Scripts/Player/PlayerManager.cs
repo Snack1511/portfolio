@@ -63,7 +63,7 @@ public class PlayerManager
             }
         }
         Leaveplayer = 0;
-    }
+    }//플레이어변수들 초기화
 
     public void GivePointToPlayer(int RoundNum)
     {
@@ -80,7 +80,7 @@ public class PlayerManager
                 PlayerDatas[i].GetPlayerData().CalTotalPoint(RoundNum);
             }
         }
-    }
+    }//플레이어변수에 점수할당
 
     public bool GetWinner()
     {
@@ -93,7 +93,7 @@ public class PlayerManager
             }
         }
         return true;
-    }
+    }//승자설정
 
     public bool InputNextButton()
     {
@@ -112,6 +112,16 @@ public class PlayerManager
             }
         }
         return false;
+    }//플레이어확인버튼 입력
+
+    public bool InputAnyButton()
+    {
+        if ((Gamepad.current.IsPressed() && Gamepad.current.wasUpdatedThisFrame)
+            || (Keyboard.current.IsPressed() && Keyboard.current.wasUpdatedThisFrame))
+        {
+            return true;
+        }
+        else return false;
     }
 
     public bool IsLeaveBiggerThanPlayer()

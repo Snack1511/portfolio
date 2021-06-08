@@ -88,7 +88,7 @@ public class CPlayer
     {
         if (lstPoint.Count > 0)
         {
-            UnityEngine.Debug.Log(lstPoint[n]);
+            UnityEngine.Debug.Log("Point"+lstPoint[n]);
             iTotalPoint += (4 - lstPoint[n]);
         }
     }
