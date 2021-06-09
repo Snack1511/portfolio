@@ -20,5 +20,15 @@ namespace BallValuse
         public Vector2 DIR { get { return Dir; } private set { Dir = value; } }
         public float SPD { get { return Spd; } private set { Spd = value; } }
     }
+
+}
+namespace Custom
+{
+    public enum ROOMTAG
+    {
+        Menu,
+        Play,
+        Ending,
+    };
 }
 
