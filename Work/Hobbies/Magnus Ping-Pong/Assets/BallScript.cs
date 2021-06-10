@@ -64,6 +64,22 @@ public class BallScript : MonoBehaviour
 
     }
 
+    public void ResetBall(bool side)
+    {
+        Debug.Log("ResetBall");
+        Ball_Tr.position = Vector2.zero;
+        SideCheck = false;
+        RPM = 60f;
+        POSY = 0f;
+        POSX = 1f;
+        BasicRoute = new Vector2(0, -1);
+        RadiRoute = Vector2.zero;
+        Target = Vector2.zero;
+        Ball_Speed = 3f;
+        if (side) Ball_Dir = new Vector2(0, -1);
+        else Ball_Dir = new Vector2(0, 1);
+    }
+
     private Vector2 ContrallDir(Vector2 TObject)
     {
         if (SideCheck == false)

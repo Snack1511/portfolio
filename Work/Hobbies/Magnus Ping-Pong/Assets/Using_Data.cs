@@ -16,6 +16,7 @@ namespace BallValuse
             Spd = spd;
         }
 
+        
         public Vector2 POS { get { return Pos; } private set { Pos = value; } }
         public Vector2 DIR { get { return Dir; } private set { Dir = value; } }
         public float SPD { get { return Spd; } private set { Spd = value; } }
@@ -30,5 +31,7 @@ namespace Custom
         Play,
         Ending,
     };
+    
+    
 }
 

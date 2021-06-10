@@ -5,20 +5,28 @@ using UnityEngine;
 public class RoundManager : MonoBehaviour
 {
     public PlayerManager PlayerMgr;
+    public BallManager BallMgr;
     bool bRoundEnd = false;
+    GameObject WinnerObj;
     GameManager GM;
+    int time = 3;
     public static RoundManager CreateObj()
     {
-        GameObject RoundMgr = new GameObject();
-        DontDestroyOnLoad(RoundMgr);
-        RoundMgr.name = "RoundMgr";
-        RoundMgr.AddComponent<RoundManager>();
+        GameObject RoundMgr = GameObject.Find("RoundMgr");
+        if (RoundMgr == null)
+        {
+            RoundMgr = new GameObject();
+            DontDestroyOnLoad(RoundMgr);
+            RoundMgr.name = "RoundMgr";
+            RoundMgr.AddComponent<RoundManager>();
+        }
         return RoundMgr.GetComponent<RoundManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
         PlayerMgr = new PlayerManager();
+        BallMgr = new BallManager(GameObject.FindGameObjectWithTag("BALL").GetComponent<BallScript>());
         GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
         StartCoroutine("RoundCheck");
     }
@@ -30,29 +38,59 @@ public class RoundManager : MonoBehaviour
     }
     public void ResetRound()
     {
+
+        bool side;
         Debug.Log("ResetRound");
-        PlayerMgr.ResetPlayerMgr();
+        WinnerObj = PlayerMgr.ResetPlayerMgr();
+        if (WinnerObj.name != "Bar_Player") BallMgr.ResetBallMgr(true);
+        else BallMgr.ResetBallMgr(false);
+        if (PlayerMgr.Pointdifference() >= 5)
+        {
+            GM.bGameEnd = true;
+        }
+        else
+        {
+            time = 3;
+        }
     }
     
     IEnumerator RoundCheck()
     {
-        int time = 3;
-        Time.timeScale = 0;
-        while (time >= 1)
-        {
-            Debug.Log(time);
-            yield return new WaitForSecondsRealtime(1);
-            time -= 1;
-        }
-        Time.timeScale = 1;
+        
+        //while (time >= 1)
+        //{
+        //    Time.timeScale = 0;
+        //    Debug.Log(time);
+        //    yield return new WaitForSecondsRealtime(1);
+        //    time -= 1;
+        //}
+        //Time.timeScale = 1;
         while (!GM.bGameEnd)
         {
-            
-            if (PlayerMgr.IsGetPoint())
+            if (time >= 1)
             {
-                ResetRound();
+                if (Time.timeScale == 1)
+                {
+                    Time.timeScale = 0;
+                }
+                Debug.Log(time);
+                yield return new WaitForSecondsRealtime(1);
+                time -= 1;
             }
-            yield return new WaitForEndOfFrame();
+            else
+            {
+                if (Time.timeScale == 0)
+                {
+                    Time.timeScale = 1;
+                }
+                if (PlayerMgr.IsGetPoint())
+                {
+                    ResetRound();
+                }
+                yield return new WaitForEndOfFrame();
+            }
         }
+        GM.ROOM.TAG = Custom.ROOMTAG.Ending;
+        GM.ROOM.TagChange = true;
     }
 }

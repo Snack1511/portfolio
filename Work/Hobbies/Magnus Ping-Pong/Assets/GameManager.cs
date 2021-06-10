@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        RoomMgr = new RoomManager();
+        RoomMgr =RoomManager.CreateObj();
+        //RoomMgr = new RoomManager();
         BtnMgr = GameObject.Find("ButtonMgr").GetComponent<ButtonManager>();
         BtnMgr.RoomMgr = RoomMgr;
     }
@@ -30,17 +31,26 @@ public class GameManager : MonoBehaviour
     
     IEnumerator RoomMgrUpdate()
     {
-        while (bGameEnd)
+        while (true)
         {
-            if (RoomMgr.TagChange)
+            while (bGameEnd)
             {
-                RoomMgr = BtnMgr.RoomMgr;
-                RoomMgr.SceneMove();
-                RoomMgr.TagChange = false;
-                bGameEnd = false;
+                if (RoomMgr.TagChange)
+                {
+                    RoomMgr = BtnMgr.RoomMgr;
+                    RoomMgr.SceneMove();
+                    RoomMgr.TagChange = false;
+                    bGameEnd = false;
+                }
+                yield return new WaitForEndOfFrame();
+                if (!bGameEnd) RoundMgr = RoundManager.CreateObj();
             }
             yield return new WaitForEndOfFrame();
         }
-        RoundMgr = RoundManager.CreateObj();
+        
     }//룸메니저 업데이트용 함수
+    public RoomManager ROOM
+    {
+        get { return RoomMgr; }
+    }
 }
