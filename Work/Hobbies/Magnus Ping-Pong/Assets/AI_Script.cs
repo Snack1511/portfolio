@@ -5,12 +5,51 @@ using BallValuse;
 
 public class AI_Script : MonoBehaviour
 {
-    GiveData Data;
+    /*GiveData Data;
     Transform AI_Tr;//, Ball_Tr, Player_Tr;
     Vector2 AI_Dir = new Vector2(1f, 0f);
-    float AI_Speed = 5f;
+    float AI_Speed = 5f;*/
+
+    float AIHori;
+    float AIVerti;
+    CONDITION condition;
+
+    private void Start()
+    {
+        AIHori = 0f;
+        AIVerti = 0f;
+        condition = CONDITION.IDLE;
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    void stateChange()
+    {
+
+    }//values : point
+
+    public float HORI
+    {
+        get { return AIHori; }
+    }
+    public float VERTI
+    {
+        get { return AIVerti; }
+    }
+    
+    enum CONDITION
+    {
+        IDLE,
+        DEFENCE,
+        OFFENCE,
+        SNEER,
+    }
+
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         AI_Tr = GetComponent<Transform>();
         //Player_Tr = GetComponent<Transform>();
@@ -26,7 +65,7 @@ public class AI_Script : MonoBehaviour
         Data = GameObject.Find("Ball").GetComponent<BallScript>().DATA;
         SetAI_Position(Cal_BallXpos(Data.POS, Data.DIR, Data.SPD));
     }
-
+    
     float Cal_BallXpos(Vector2 BallPos, Vector2 BallDir, float BallSpd) {
         float time = (AI_Tr.position.y - BallPos.y)/(BallDir.y * 0.02f * BallSpd);//0.02f => 프레임당 Timescale
         float Ball_xpos = BallPos.x + (BallDir.x * 0.02f * BallSpd * time);
@@ -45,7 +84,7 @@ public class AI_Script : MonoBehaviour
         {
             AI_Tr.Translate(dir * AI_Speed * Time.deltaTime);
         }
-    }
+    }*/
 }
 /*
  공이 씹 예각으로 맞으면 도망치는 버그 수정

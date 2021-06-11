@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BallScript.cs" />
+    <Compile Include="Assets\ScoreManager.cs" />
     <Compile Include="Assets\Boundary.cs" />
     <Compile Include="Assets\Using_Data.cs" />
     <Compile Include="Assets\PlayerSet.cs" />
@@ -66,8 +67,9 @@
     <Compile Include="Assets\ButtonManager.cs" />
     <Compile Include="Assets\PlayerManager.cs" />
     <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\RoomManager.cs" />
     <Compile Include="Assets\BallManager.cs" />
+    <Compile Include="Assets\RoomManager.cs" />
+    <Compile Include="Assets\ControlScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BOUNDARY
   - BALL
+  - GAMEMGR
   layers:
   - Default
   - TransparentFX

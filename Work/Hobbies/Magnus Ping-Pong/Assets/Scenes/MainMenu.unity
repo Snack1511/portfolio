@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d716487e70463408d7ce858fc1d11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bButtonInput: 0
+  RoomMgr: {fileID: 0}
 --- !u!4 &126855121
 Transform:
   m_ObjectHideFlags: 0
@@ -636,6 +636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42040788214befb49ba5cd1fb6f2f523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bGameEnd: 1
+  iRoundTime: 10
 --- !u!4 &1133112422
 Transform:
   m_ObjectHideFlags: 0

@@ -18,10 +18,10 @@ public class RoomManager: MonoBehaviour
         if (RoomMgr == null)
         {
             RoomMgr = new GameObject();
-            DontDestroyOnLoad(RoomMgr);
             RoomMgr.name = "RoomMgr";
             RoomMgr.AddComponent<RoomManager>();
         }
+        DontDestroyOnLoad(RoomMgr);
         return RoomMgr.GetComponent<RoomManager>();
     }
     public void SceneMove()

@@ -6,27 +6,41 @@ public class RoundManager : MonoBehaviour
 {
     public PlayerManager PlayerMgr;
     public BallManager BallMgr;
+    ScoreManager ScoreMgr;
     bool bRoundEnd = false;
     GameObject WinnerObj;
     GameManager GM;
     int time = 3;
-    public static RoundManager CreateObj()
+    int iRoundTime = 0;
+    int itmpScore = 0;
+    GameObject objPlayerScore, objCPUScore;
+    public static RoundManager CreateObj(int RoundTime = 1)
     {
         GameObject RoundMgr = GameObject.Find("RoundMgr");
         if (RoundMgr == null)
         {
             RoundMgr = new GameObject();
-            DontDestroyOnLoad(RoundMgr);
             RoundMgr.name = "RoundMgr";
             RoundMgr.AddComponent<RoundManager>();
         }
+        DontDestroyOnLoad(RoundMgr);
+        var a = RoundMgr.GetComponent<RoundManager>();
+        a.SetValue(RoundTime);
         return RoundMgr.GetComponent<RoundManager>();
+    }
+    void SetValue(int RoundTime)
+    {
+        iRoundTime = RoundTime;
     }
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("start");
+        objPlayerScore = GameObject.Find("PlayerScore");
+        objCPUScore = GameObject.Find("CPUScore");
         PlayerMgr = new PlayerManager();
         BallMgr = new BallManager(GameObject.FindGameObjectWithTag("BALL").GetComponent<BallScript>());
+        ScoreMgr = new ScoreManager(objPlayerScore, objCPUScore);
         GM = GameObject.Find("GameMgr").GetComponent<GameManager>();
         StartCoroutine("RoundCheck");
     }
@@ -36,20 +50,29 @@ public class RoundManager : MonoBehaviour
     {
         
     }
+    public void SetTotalScore(GameObject TotalScore)
+    {
+        ScoreMgr.GetTotalScore(TotalScore);
+    }
     public void ResetRound()
     {
-
-        bool side;
         Debug.Log("ResetRound");
         WinnerObj = PlayerMgr.ResetPlayerMgr();
-        if (WinnerObj.name != "Bar_Player") BallMgr.ResetBallMgr(true);
-        else BallMgr.ResetBallMgr(false);
-        if (PlayerMgr.Pointdifference() >= 5)
+        if (WinnerObj.name == "Bar_Player") {
+            ScoreMgr.UpdateScore(true, PlayerMgr.GetPoint());
+            BallMgr.ResetBallMgr(true); 
+        }
+        else {
+            ScoreMgr.UpdateScore(false, PlayerMgr.GetPoint());
+            BallMgr.ResetBallMgr(false);
+        }
+        if (PlayerMgr.Pointdifference() >= iRoundTime)
         {
             GM.bGameEnd = true;
         }
         else
         {
+            ScoreMgr.SetEachScore(objPlayerScore, objCPUScore);
             time = 3;
         }
     }

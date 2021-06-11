@@ -4,13 +4,21 @@ using UnityEngine;
 using Custom;
 public class GameManager : MonoBehaviour
 {
+    //public static GameManager Instance;
     RoomManager RoomMgr;
     ButtonManager BtnMgr;
     RoundManager RoundMgr;
     public bool bGameEnd = true;
+    public int iRoundTime = 0;
     // Start is called before the first frame update
     private void Awake()
     {
+        var a = GameObject.Find("GameMgr");
+        if (a != null && a != gameObject)
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(gameObject);
         RoomMgr =RoomManager.CreateObj();
         //RoomMgr = new RoomManager();
@@ -28,7 +36,13 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    
+    void ResetRoundMgr()
+    {
+        if (RoundMgr != null) {
+            Destroy(RoundMgr.gameObject);
+        
+        }
+    }
     IEnumerator RoomMgrUpdate()
     {
         while (true)
@@ -40,10 +54,22 @@ public class GameManager : MonoBehaviour
                     RoomMgr = BtnMgr.RoomMgr;
                     RoomMgr.SceneMove();
                     RoomMgr.TagChange = false;
-                    bGameEnd = false;
+                    if (RoomMgr.TAG == ROOMTAG.Play)
+                    {
+                        ResetRoundMgr();
+                        bGameEnd = false;
+                    }
+                }
+                if (RoomMgr.TAG == ROOMTAG.Ending)
+                {
+                    if (GameObject.Find("TotalScore") != null)
+                    {
+                        RoundMgr.SetTotalScore(GameObject.Find("TotalScore"));
+                        GameObject.Find("TotalScore").name += "Confirm";
+                    }
                 }
                 yield return new WaitForEndOfFrame();
-                if (!bGameEnd) RoundMgr = RoundManager.CreateObj();
+                if (!bGameEnd) RoundMgr = RoundManager.CreateObj(iRoundTime);
             }
             yield return new WaitForEndOfFrame();
         }
