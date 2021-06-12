@@ -56,20 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BallScript.cs" />
-    <Compile Include="Assets\ScoreManager.cs" />
-    <Compile Include="Assets\Boundary.cs" />
-    <Compile Include="Assets\Using_Data.cs" />
-    <Compile Include="Assets\PlayerSet.cs" />
-    <Compile Include="Assets\BarScript.cs" />
-    <Compile Include="Assets\RoundManager.cs" />
-    <Compile Include="Assets\AI_Script.cs" />
-    <Compile Include="Assets\ButtonManager.cs" />
-    <Compile Include="Assets\PlayerManager.cs" />
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\BallManager.cs" />
-    <Compile Include="Assets\RoomManager.cs" />
-    <Compile Include="Assets\ControlScript.cs" />
+    <Compile Include="Assets\Scripts\BallScript.cs" />
+    <Compile Include="Assets\Scripts\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\Boundary.cs" />
+    <Compile Include="Assets\Scripts\Using_Data.cs" />
+    <Compile Include="Assets\Scripts\PlayerSet.cs" />
+    <Compile Include="Assets\Scripts\BarScript.cs" />
+    <Compile Include="Assets\Scripts\ControlScript.cs" />
+    <Compile Include="Assets\Scripts\RoundManager.cs" />
+    <Compile Include="Assets\Scripts\AI_Script.cs" />
+    <Compile Include="Assets\Scripts\ButtonManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\BallManager.cs" />
+    <Compile Include="Assets\Scripts\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
