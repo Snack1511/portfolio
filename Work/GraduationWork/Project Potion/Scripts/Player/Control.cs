@@ -88,7 +88,7 @@ public class Control : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext ctx)
     {
-        if (!bPauseflg && !GameManager.GM.GamePauseflg)
+        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
         {
             
             bAnim_Moveflg = true;
@@ -116,7 +116,7 @@ public class Control : MonoBehaviour
     
 
     public void Attack(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.GamePauseflg)
+        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
         {
             bAnim_Attflg = true;
             bAttackflg = ctx.ReadValueAsButton();
@@ -124,7 +124,7 @@ public class Control : MonoBehaviour
     }
 
     public void Dash(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.GamePauseflg && !bAnim_Dashflg)
+        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg && !bAnim_Dashflg)
         {
             //Debug.Log("Dash" + " " + ctx.phase);
             DashDir = AimDir;
@@ -139,7 +139,7 @@ public class Control : MonoBehaviour
     }
 
     public void Throw(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.GamePauseflg)
+        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
         {
             if (bHaveWeapon)
             {
@@ -167,7 +167,7 @@ public class Control : MonoBehaviour
     }
     public void Menu(InputAction.CallbackContext ctx)
     {
-        GameManager.GM.GamePauseflg = true;
+        GameManager.GM.ROOMMGR.GamePauseflg = true;
     }
     public void DeviceLost()
     {

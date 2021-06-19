@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 namespace Custom
@@ -86,5 +87,132 @@ namespace Custom
         }
     }
     
+    public class GenericFuncs
+    {
+        public static GameObject InitMgr<T>(string _name) where T:class, new()
+        {
+            var a = new T();
+            a.GetType();
+            GameObject Mgrobj = GameObject.Find(_name);
+            if (Mgrobj == null)
+            {
+                Mgrobj = new GameObject();
+                Mgrobj.name = _name;
+                Mgrobj.AddComponent(a.GetType());
+                Object.DontDestroyOnLoad(Mgrobj);
+            }
+            return Mgrobj;
+        }
+    }
+
+    [System.Serializable]
+    public struct SelectData
+    {
+
+        int Index;
+        Material Mat;
+        string charactername;
+        string device;
+        InputDevice InputDv;
+        bool Readyflg;
+        bool Activeflg;
+        //delegate bool SetReadyflg(bool value);
+
+        public SelectData(Material _Mat, int idx = -1, string _device = "", InputDevice _InputDv = null, string name = "")
+        {
+            Index = idx;
+            Mat = _Mat;
+            charactername = name;
+            device = _device;
+            InputDv = _InputDv;
+            Readyflg = false;
+            Activeflg = true;
+        }
+
+        public string GetDVName()
+        {
+            return device;
+        }
+        public string GetIndexTostr()
+        {
+            return Index.ToString();
+        }
+        public int GetIndex()
+        {
+            return Index;
+        }
+        public InputDevice GetInputDv()
+        {
+            return InputDv;
+        }
+        public string GetName()
+        {
+            return charactername;
+        }
+        public Material GetMat()
+        {
+            return Mat;
+        }
+        public bool IsReady()
+        {
+            return Readyflg;
+        }
+        public bool IsActive()
+        {
+            return Activeflg;
+        }
+        public void SetName(string value)
+        {
+            charactername = value;
+        }
+        public void SetReady(bool value = true)
+        {
+            Readyflg = value;
+        }
+        public void SetActive(bool value = true)
+        {
+            Activeflg = value;
+        }
+        public void ResetAll()
+        {
+            Index = 0;
+            Mat = null;
+            charactername = "";
+            device = "";
+            InputDv = null;
+            Readyflg = false;
+            Activeflg = false;
+        }
+
+        public string PrintForDebug()
+        {
+            string str;
+            str = Index + " " + device + " " + Mat + " " + charactername;
+            return str;
+        }
+
+        public void SetData(SelectData sd)
+        {
+            Index = sd.Index;
+            Mat = sd.Mat;//c;
+            charactername = sd.charactername;
+            device = sd.device;
+            InputDv = sd.InputDv;
+            Readyflg = sd.Readyflg;
+            Activeflg = sd.Activeflg;
+        }
+        public void SetPreviousData(int n, Material _Mat)
+        {
+            Index = n;
+            Mat = _Mat;
+        }
+
+
+    };
+    /*
+         Keyboard
+         XInputControllerWindows
+         Dual4Shock
+     */
 
 }

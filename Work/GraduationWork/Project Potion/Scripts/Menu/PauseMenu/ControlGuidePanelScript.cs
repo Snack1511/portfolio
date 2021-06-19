@@ -79,10 +79,10 @@ public class ControlGuidePanelScript : MonoBehaviour
 
     public void ClickContinuebtnEvent()
     {
-        if (!GameManager.GM.Tutorialchkflg)
+        if (!GameManager.GM.ROOMMGR.Tutorialchkflg)
         {
-            GameManager.GM.Tutorialchkflg = true;
-            GameManager.GM.GamePauseflg = false;
+            GameManager.GM.ROOMMGR.Tutorialchkflg = true;
+            GameManager.GM.ROOMMGR.GamePauseflg = false;
             gameObject.SetActive(false);
         }
         else gameObject.SetActive(false);

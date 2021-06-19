@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Custom;
 public class AddPlayerScript : MonoBehaviour
 {
     float padding = 30;

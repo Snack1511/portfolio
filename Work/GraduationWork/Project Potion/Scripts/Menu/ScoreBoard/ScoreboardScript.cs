@@ -19,10 +19,11 @@ public class ScoreboardScript : MonoBehaviour
         for (int i = 1; i <= Gm.ROUNDMGR.PMGR.PlayerCount; i++)
         {
             InitScoreMeter(i);
-        }
+        }//룸매니저쪽으로 받아줘야함
     }
     private void OnEnable()
     {
+        
         if (Gm.ROUNDMGR.ReadRoundCheck)
         {
             for (int i = 1; i <= Gm.PMGR.PlayerCount; i++)
