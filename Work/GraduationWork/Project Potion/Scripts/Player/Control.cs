@@ -167,7 +167,7 @@ public class Control : MonoBehaviour
     }
     public void Menu(InputAction.CallbackContext ctx)
     {
-        GameManager.GM.ROOMMGR.GamePauseflg = true;
+        GameManager.GM.ROOMMGR.ROUNDMGR.UIMGR.SetPause(true);
     }
     public void DeviceLost()
     {

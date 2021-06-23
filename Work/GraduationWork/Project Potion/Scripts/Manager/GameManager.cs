@@ -42,22 +42,23 @@ public class GameManager : MonoBehaviour
         }
         GM = this;
         
-        if (!Selected[0].IsActive())
+        /*if (!Selected[0].IsActive())
         {
             Selected[0] = new SelectData(null, 0, "Keyboard", InputSystem.devices[0], "Ch_roundFlask");
             Selected[1] = new SelectData(null, 1, "XInputControllerWindows", InputSystem.devices[2], "Ch_roundFlask");//디버깅용
-        }//Input for Debug
+        }*///Input for Debug -> 라운드매니저에서 받아야 할듯
+
         //GamePauseflg = true;
         //Tutorialchkflg = false;
         //MenuPanel = transform.GetChild(0).gameObject;
         
-        RoomMgr = GenericFuncs.InitMgr<RoomManager>("RoomMgr").GetComponent<RoomManager>();
-        RoomMgr.SetManager(Selected);
+        /*RoomMgr = GenericFuncs.InitMgr<RoomManager>("RoomMgr").GetComponent<RoomManager>();
+        RoomMgr.SetManager(Selected);*/
         
-        for (int i = 0; i < ROUNDMGR.PMGR.PlayerCount; i++)
+        /*for (int i = 0; i < ROUNDMGR.PMGR.PlayerCount; i++)
         {
             DontDestroyOnLoad(ROUNDMGR.PMGR.InputPlayers[i].gameObject);
-        }
+        }*/
         ResetGameMgr();
     }
     private void Awake()
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
     {
         
         //RoundMgr.RoundStart();
-        StartCoroutine("ResetValues", RoomMgr.ROUNDMGR);
+        //StartCoroutine("ResetValues", RoomMgr.ROUNDMGR);
         //이거도 룸메니저에서 돌리는거 생각해 봐야함
 
     }
@@ -89,16 +90,21 @@ public class GameManager : MonoBehaviour
         }
     }*/
 
-    
+    public void CreateRoomMgr()
+    {
+        RoomMgr = GenericFuncs.InitMgr<RoomManager>("RoomMgr").GetComponent<RoomManager>();
+        //RoomMgr.SetManager(Selected);
+    }
+
     void ResetGameMgr()
     {
         
-        RoomMgr.ResetRoomMgr();
+        //RoomMgr.ResetRoomMgr();
 
     }
     
     
-    IEnumerator ResetValues(RoundManager RMGR)
+    /*IEnumerator ResetValues(RoundManager RMGR)
     {
         while (RMGR.Gamestartflg)
         {
@@ -108,7 +114,7 @@ public class GameManager : MonoBehaviour
             }
             else yield return new WaitForEndOfFrame();
         }
-    }//RoundMgr의 bCallResetGameMgr변수를 받아서 원하는 타이밍에 변수를 초기화시키는 함수
+    }*///RoundMgr의 bCallResetGameMgr변수를 받아서 원하는 타이밍에 변수를 초기화시키는 함수
     
     /*IEnumerator MenuOpen() {
 

@@ -10,6 +10,7 @@ public class RoundManager:MonoBehaviour
     bool bScoreboardCheckflg = false;//스코어보드 확인 변수
     GameObject ScoreboardPanel;//스코어 보드 오브젝트 변수
     PlayerManager PlayerMgr;//플레이어매니저 변수
+    UIManager UIMgr;
 
     public int RoundNum;//라운드 번호
     public bool Gamestartflg;//시작 플레그
@@ -18,6 +19,10 @@ public class RoundManager:MonoBehaviour
     {
         get { return PlayerMgr; }
     }//PlayerMgr읽기용 프로퍼티
+    public UIManager UIMGR
+    {
+        get { return UIMgr; }
+    }
     public bool ReadRoundCheck
     {
         get { return bRoundCheckflg; }
@@ -29,8 +34,9 @@ public class RoundManager:MonoBehaviour
 
     // Start is called before the first frame update
 
-    public void RoundStart()
+    public void Start()
     {
+        
         StartCoroutine("RoundChange");
         /*
          모노비해비어를 이용할 경우 필수적으로 게임 오브젝트에 할당한 후 코루틴을 동작시켜야 한다.
@@ -39,16 +45,27 @@ public class RoundManager:MonoBehaviour
          */
     }//GameMgr의 Start함수에서 동작 -> 코루틴 호출용
     
-    public void SetManager(SelectData[] Selected, GameObject Scoreboard, int n)
+    public void SetManager(SelectData[] Selected,/* GameObject Scoreboard, */int n = 0)
     {
-        PlayerMgr = new PlayerManager(Selected);
-        ScoreboardPanel = Scoreboard;
+        //ScoreboardPanel = Scoreboard;
         RoundNum = n;
         Gamestartflg = true;
+        PlayerMgr = new PlayerManager(Selected);
+        UIMgr = GenericFuncs.InitMgr<UIManager>("UIMgr").GetComponent<UIManager>();
+        InitRoundMgr();
+        UIMgr.SetManager();
         ResetRoundMgr();
     }//생성자를 대신해 초기화 시키는 함수
+    void LateUpdate()
+    {
 
-
+        RoundEndCheck();
+        /*if (GamePauseflg)
+        {
+            StartCoroutine("MenuOpen");
+        }//★*/
+    }
+    /*
     public static GameObject InitMgr(SelectData[] Selected, GameObject Scoreboard, int n = 0)
     {
         GameObject Mgrobj = GameObject.Find("RoundMgr");
@@ -62,7 +79,16 @@ public class RoundManager:MonoBehaviour
         }
         return Mgrobj;
     }//GameMgr에서 변수 생성시 동시에 RoundMgr객체를 생성하도록 하는 함수
-
+    */
+    void InitRoundMgr()
+    {
+        UIMGR.InitUIMgr();
+        for (int i = 0; i < PMGR.PlayerCount; i++)
+        {
+            Debug.Log("LoadPlayers" + i+1);
+            DontDestroyOnLoad(PMGR.InputPlayers[i].gameObject);
+        }
+    }
     public void ResetRoundMgr()
     {
         bMapChack = new bool[5];
@@ -70,6 +96,7 @@ public class RoundManager:MonoBehaviour
         bScoreboardCheckflg = false;
         PlayerMgr.ResetPlayerMgr();
         bCallResetGameMgr = false;
+        UIMgr.ResetUIMgr();
     }//GameMgr의 ResetGameMgr에서 동작하는 함수 -> 라운드 진행시 변수 초기화용
     public void RoundEndCheck()
     {
@@ -136,7 +163,8 @@ public class RoundManager:MonoBehaviour
                     if (ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(false);
                     Debug.Log("RoundChange");
                     ChangeMap();
-                    bCallResetGameMgr = true;
+                    ResetRoundMgr();
+                    //bCallResetGameMgr = true;
                 }
             }
             yield return new WaitForEndOfFrame();

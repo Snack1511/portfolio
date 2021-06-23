@@ -77,7 +77,7 @@ public class ControlGuidePanelScript : MonoBehaviour
         
     }
 
-    public void ClickContinuebtnEvent()
+    /*public void ClickContinuebtnEvent()
     {
         if (!GameManager.GM.ROOMMGR.Tutorialchkflg)
         {
@@ -86,7 +86,7 @@ public class ControlGuidePanelScript : MonoBehaviour
             gameObject.SetActive(false);
         }
         else gameObject.SetActive(false);
-    }
+    }*/
 
     void SetDescriptionPos()
     {

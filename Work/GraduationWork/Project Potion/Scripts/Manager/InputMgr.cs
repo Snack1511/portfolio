@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 using Custom;
 
 
@@ -22,7 +22,7 @@ public class InputMgr : MonoBehaviour
     public Material[] ColorMats = new Material[4]; 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         //PlayerInput.isSinglePlayer = false;
         GameStartflg = false;
         SData = new SelectData[4];
@@ -313,10 +313,11 @@ public class InputMgr : MonoBehaviour
         //Debug.LogAssertion("Start");
         for (int i = 0; i < SData.Length; i++)
         {
-            GameManager.Selected[i].SetData(SData[i]);
+            GameManager.GM.ROOMMGR.Selected[i].SetData(SData[i]);
         }
 
-        SceneManager.LoadScene("Scenes/Maps/TutorialScene");
+        
+        GameManager.GM.ROOMMGR.SetPlay();
         //Debug.Log(Selected[0].GetDVName());
     }
 

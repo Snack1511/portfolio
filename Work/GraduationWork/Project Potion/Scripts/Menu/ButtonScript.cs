@@ -8,6 +8,7 @@ public class ButtonScript : MonoBehaviour
     public GameObject MainCanvas, MultiCanvas, OptionCanvas;
     public void btnEventStart() {
         Debug.Log("Start");
+        GameManager.GM.CreateRoomMgr();
         MainCanvas.SetActive(false);
         MultiCanvas.SetActive(true);
 
@@ -36,9 +37,11 @@ public class ButtonScript : MonoBehaviour
 
     public void btnEventLocal() {
         //Debug.Log("Local");
+        GameManager.GM.ROOMMGR.SetLocal();
         SceneManager.LoadScene("Scenes/1.LocalRobbyScene");
     }
     public void btnEventOnline() {
+        GameManager.GM.ROOMMGR.SetOnline();
         Debug.Log("Online");
     }
     public void btnEventBack()
