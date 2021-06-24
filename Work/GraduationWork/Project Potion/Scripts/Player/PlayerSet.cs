@@ -20,7 +20,13 @@ public class PlayerSet : MonoBehaviour
     Player_Cal Cal;
     Control Con;
     PlayerRender Render;
-    PlayerManager PlayerMgr;
+    public bool CALLMENU
+    {
+        get { return Con.bCallMenu; }
+        set { Con.bCallMenu = value; }
+    }
+
+    RoundManager RoundMgr;
     public Rigidbody rigid;
     void Awake() {
         //Render = GetComponent<MeshRenderer>();
@@ -29,7 +35,7 @@ public class PlayerSet : MonoBehaviour
         Cal = GetComponent<Player_Cal>();
         Render = GetComponentInChildren<PlayerRender>();
         rigid = GetComponent<Rigidbody>();
-
+        RoundMgr = GameObject.Find("RoundMgr").GetComponent<RoundManager>();
         playerData = new CPlayer();
         playerData = CPlayer.DEBUG;
         Text_3d = GetComponent<Transform>().GetChild(0).gameObject;
@@ -52,6 +58,9 @@ public class PlayerSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
+
         //PlayerDead();
     }
     

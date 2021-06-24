@@ -140,4 +140,13 @@ public class PlayerManager
         Leaveplayer++;
         return PlayerCount - (Leaveplayer - 1);
     }
+    public void SetGamePause()
+    {
+        for (int i = 0; i < PlayerDatas.Length; i++) {
+            if(PlayerDatas[i].CALLMENU != GameManager.GM.GamePauseflg)
+            {
+                PlayerDatas[i].CALLMENU = GameManager.GM.GamePauseflg;
+            }
+        }
+    }
 }

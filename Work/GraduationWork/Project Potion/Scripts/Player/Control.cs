@@ -23,6 +23,8 @@ public class Control : MonoBehaviour
     // Start is called before the first frame update
     //public float ThrowPower { private set; get; }
 
+    public bool bCallMenu;
+
     public bool bHaveWeapon;
     public bool bHavePassive;
     public bool bHaveEffect;
@@ -72,10 +74,10 @@ public class Control : MonoBehaviour
         MoveVal = Vector3.zero;
         fAimVal = 0;
         AimDir = Vector3.zero;
-
         bAttackflg = false;
         bDashflg = false;
         bPauseflg = false;
+        bCallMenu = GameManager.GM.GamePauseflg;
 
         bHaveWeapon = false;
         bHavePassive = false;
@@ -88,7 +90,7 @@ public class Control : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext ctx)
     {
-        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
+        if (!bPauseflg && !bCallMenu)
         {
             
             bAnim_Moveflg = true;
@@ -116,7 +118,7 @@ public class Control : MonoBehaviour
     
 
     public void Attack(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
+        if (!bPauseflg && !bCallMenu)
         {
             bAnim_Attflg = true;
             bAttackflg = ctx.ReadValueAsButton();
@@ -124,7 +126,7 @@ public class Control : MonoBehaviour
     }
 
     public void Dash(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg && !bAnim_Dashflg)
+        if (!bPauseflg && !bCallMenu)
         {
             //Debug.Log("Dash" + " " + ctx.phase);
             DashDir = AimDir;
@@ -139,7 +141,7 @@ public class Control : MonoBehaviour
     }
 
     public void Throw(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !GameManager.GM.ROOMMGR.GamePauseflg)
+        if (!bPauseflg && !bCallMenu)
         {
             if (bHaveWeapon)
             {
@@ -167,7 +169,17 @@ public class Control : MonoBehaviour
     }
     public void Menu(InputAction.CallbackContext ctx)
     {
-        GameManager.GM.ROOMMGR.ROUNDMGR.UIMGR.SetPause(true);
+        if (bCallMenu)
+        {
+            GameManager.GM.GamePauseflg = false;
+            bCallMenu = false;
+
+        }
+        else
+        {
+            GameManager.GM.GamePauseflg = true;
+            bCallMenu = true;
+        }
     }
     public void DeviceLost()
     {

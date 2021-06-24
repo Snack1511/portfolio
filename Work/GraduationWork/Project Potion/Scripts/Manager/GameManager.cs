@@ -8,11 +8,15 @@ using Custom;
 public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
+    public bool GamePauseflg;
     public static SelectData[] Selected = new SelectData[4];//플레이어 정보 담는 데이터
     RoomManager RoomMgr;
     public RoomManager ROOMMGR
     {
-        get { return RoomMgr; }
+        get {
+            
+            return RoomMgr;
+        }
     }
     
     public RoundManager ROUNDMGR
@@ -41,7 +45,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         GM = this;
-        
+        GamePauseflg = true;
         /*if (!Selected[0].IsActive())
         {
             Selected[0] = new SelectData(null, 0, "Keyboard", InputSystem.devices[0], "Ch_roundFlask");
@@ -51,10 +55,10 @@ public class GameManager : MonoBehaviour
         //GamePauseflg = true;
         //Tutorialchkflg = false;
         //MenuPanel = transform.GetChild(0).gameObject;
-        
+
         /*RoomMgr = GenericFuncs.InitMgr<RoomManager>("RoomMgr").GetComponent<RoomManager>();
         RoomMgr.SetManager(Selected);*/
-        
+
         /*for (int i = 0; i < ROUNDMGR.PMGR.PlayerCount; i++)
         {
             DontDestroyOnLoad(ROUNDMGR.PMGR.InputPlayers[i].gameObject);
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void CreateRoomMgr()
     {
         RoomMgr = GenericFuncs.InitMgr<RoomManager>("RoomMgr").GetComponent<RoomManager>();
+        Debug.Log(gameObject + ", "+RoomMgr);
         //RoomMgr.SetManager(Selected);
     }
 

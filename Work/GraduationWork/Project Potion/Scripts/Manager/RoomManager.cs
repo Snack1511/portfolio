@@ -90,6 +90,10 @@ public class RoomManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         SceneManager.LoadScene("Scenes/Maps/TutorialScene");
+        while (GameObject.Find("ScoreboardCanvas") == null)
+        {
+            yield return new WaitForEndOfFrame();
+        }
         
         CreateRoundMgr();
     }
@@ -98,6 +102,7 @@ public class RoomManager : MonoBehaviour
         if(level == 2)
         {
             Debug.Log("tutorial");
+            //CreateRoundMgr();
         }
     }
     void CreateRoundMgr()

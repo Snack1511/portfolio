@@ -211,7 +211,7 @@ public class Player_Cal : MonoBehaviour
             }
             /*else
             {
-                bDashEndflg = true;
+                //bDashEndflg = true;
             }*/
             Rigid.AddForceAtPosition(Vector3.zero, Tr.position, ForceMode.VelocityChange);
         }

@@ -12,15 +12,16 @@ public class UIManager : MonoBehaviour
     GameObject MenuPanel;
     GameObject ScoreboardPanel;
     RoomManager RoomMgr;
+    
     public void InitUIMgr()
     {
-        GamePauseflg = true;//¡Ú
+        GamePauseflg = GameManager.GM.GamePauseflg;//¡Ú
         
     }
     public void ResetUIMgr()
     {
-        MenuPanel.SetActive(false);
-        ScoreboardPanel.SetActive(!RoomMgr.Tutorialchkflg);
+        MenuPanel.SetActive(!RoomMgr.Tutorialchkflg);
+        ScoreboardPanel.SetActive(false);
     }
     public void SetManager()
     {
@@ -46,8 +47,9 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
-        if (MenuPanel != null && ScoreboardPanel != null && GamePauseflg)
+        if (MenuPanel != null && ScoreboardPanel != null && GameManager.GM.GamePauseflg)
         {
+            GamePauseflg = GameManager.GM.GamePauseflg;
             Debug.Log("MenuPanelFind");
             StartCoroutine("MenuOpen");
         }//¡Ú
@@ -65,6 +67,7 @@ public class UIManager : MonoBehaviour
         if (!GamePauseflg)
         {
             if (!RoomMgr.Tutorialchkflg) RoomMgr.Tutorialchkflg = true;//ÁÖÀÇ
+            GameManager.GM.GamePauseflg = GamePauseflg;
             Time.timeScale = 1f;
             MenuPanel.SetActive(false);
         }
