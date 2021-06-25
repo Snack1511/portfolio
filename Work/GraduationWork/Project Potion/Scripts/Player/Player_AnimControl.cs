@@ -5,6 +5,7 @@ using Custom;
 public class Player_AnimControl : MonoBehaviour
 {
     Animator Anima;
+    PlayerManager PlayerMgr;
     public Control control;
     public Player_Cal calculate;
     public PlayerRender Render;
@@ -28,10 +29,11 @@ public class Player_AnimControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerMgr = transform.root.GetComponent<PlayerManager>();
         Anima = GetComponent<Animator>();
-        control = transform.root.GetComponent<Control>();
-        calculate = transform.root.GetComponent<Player_Cal>();
-        Render = transform.root.GetComponentInChildren<PlayerRender>();
+        control = PlayerMgr.FindPlayer(gameObject).GetComponent<Control>();
+        calculate = PlayerMgr.FindPlayer(gameObject).GetComponent<Player_Cal>();
+        Render = PlayerMgr.FindPlayer(gameObject).GetComponentInChildren<PlayerRender>();
         
         InitParameters();
         ResetRotate();

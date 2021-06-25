@@ -54,8 +54,13 @@ public class RoomManager : MonoBehaviour
     {
         get { return RoundMgr; }
     }
+    public PlayerManager PMGR
+    {
+        get { return RoundMgr.PMGR; }
+    }
     void InitRoomMgr()
     {
+        GameManager.GM.ROOMMGR = this;
         //플레이씬으로 넘어갈때 동작
         //RoundMgr = GenericFuncs.InitMgr<RoundManager>("RoundMgr").GetComponent<RoundManager>();
         ResetRoomMgr();
@@ -102,6 +107,7 @@ public class RoomManager : MonoBehaviour
         if(level == 2)
         {
             Debug.Log("tutorial");
+            Debug.Log(GameManager.GM.ROOMMGR);
             //CreateRoundMgr();
         }
     }
@@ -124,6 +130,7 @@ public class RoomManager : MonoBehaviour
     }
     public void SetLocal(bool flg = true)
     {
+        Debug.Log(GameManager.GM.ROOMMGR);
         //Debug.Log("Create NetWorkMgr");
     }
     public void SetOnline(bool flg = true)

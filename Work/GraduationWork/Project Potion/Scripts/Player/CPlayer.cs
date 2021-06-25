@@ -15,6 +15,7 @@ public class CPlayer
     private float fStunTime;
     private float fKnockforce;
     private float fSpeed;
+    private float fDash;
     private float fInvincibilityTime;
     private List<int> lstPoint;
     private int iTotalPoint;
@@ -29,13 +30,14 @@ public class CPlayer
         fStunTime = 5f;
         fKnockforce = 50f;
         fSpeed = 7.5f;
+        fDash = 2.5f;
         fInvincibilityTime = 5f;
         lstPoint = new List<int>();
         iTotalPoint = 0;
     }
    
 
-    public CPlayer(/*string name, */float _Mhp = 3, float _Dmg = 0, float _Stuntime = 0.5f, float _Knockforce = 50f, float _Speed = 7.5f, float _Invincivility = 1f)
+    public CPlayer(/*string name, */float _Mhp = 3, float _Dmg = 0, float _Stuntime = 0.5f, float _Knockforce = 50f, float _Speed = 7.5f, float _Dash = 2.5f, float _Invincivility = 1f)
     {
         //Name = name;
         fMaxHp = _Mhp;
@@ -44,6 +46,7 @@ public class CPlayer
         fStunTime = _Stuntime;
         fKnockforce = _Knockforce;
         fSpeed = _Speed;
+        fDash = _Dash;
         fInvincibilityTime = _Invincivility;
         lstPoint = new List<int>();
         iTotalPoint = 0;
@@ -76,6 +79,7 @@ public class CPlayer
         get { return lstPoint[lstPoint.Count - 1]; }
     }
     public float SPD { get { return fSpeed; } set { } }
+    public float DSH { get {return fDash; } set { } }
     public float INVIN { get { return fInvincibilityTime; } }
     //-----------------------------프로퍼티
 

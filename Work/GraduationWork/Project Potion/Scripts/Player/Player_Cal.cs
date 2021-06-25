@@ -145,6 +145,7 @@ public class Player_Cal : MonoBehaviour
         Rigid = GetComponent<Rigidbody>();
         Tr = SetPlayer.GetTr();
         Speed = SetPlayer.GetPlayerData().SPD;
+        fDashforce = SetPlayer.GetPlayerData().DSH;
         Slots = Tr.GetChild(2).GetChild(1).gameObject;
         
     }

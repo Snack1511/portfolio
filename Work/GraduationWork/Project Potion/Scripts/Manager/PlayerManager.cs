@@ -6,13 +6,13 @@ using Custom;
 /*
  * 플레이어 생성 및 읽기 전용
  */
-public class PlayerManager
+public class PlayerManager : MonoBehaviour
 {
     
     public const float Dist = 20;//플레이어 스폰 위치정보
     public int Leaveplayer;//남은 플레이어 수
     public int PlayerCount = 0;//전체 플레이어 수
-    PlayerSet[] PlayerDatas;//플레이어들의 데이터 읽기용
+    public PlayerSet[] PlayerDatas;//플레이어들의 데이터 읽기용
     public PlayerInput[] InputPlayers;//플레이어들의 조작관련 읽기용
     // -> ControlMgr로 뺄 수 있을듯
     public GameObject Winner;//승자 저장용
@@ -21,7 +21,7 @@ public class PlayerManager
     };//사전생성위치
 
     //List<Player_Cal> PlayersCalculates = new List<Player_Cal>();
-    public PlayerManager(SelectData[] Selected)
+    /*public PlayerManager(SelectData[] Selected)
     {
         InputPlayers = new PlayerInput[4];
         PlayerDatas = new PlayerSet[4];
@@ -40,8 +40,35 @@ public class PlayerManager
             }
         }
     }
+    */
+    void InitPlayerMgr()
+    {
+        InputPlayers = new PlayerInput[4];
+        PlayerDatas = new PlayerSet[4];
+    }
+    public void SetManager(SelectData[] Selected)
+    {
+        
+        for (int i = 0; i < Selected.Length; i++)
+        {
+            if (Selected[i].IsActive())
+            {
+                InputPlayers[i] = PlayerInput.Instantiate(Resources.Load<GameObject>("Prefabs/PlayerObj"), Selected[i].GetIndex(), GetScheme.GetSchemeDatas(Selected[i].GetDVName()), -1, Selected[i].GetInputDv());
+                InputPlayers[i].GetComponent<PlayerSet>().ModelName = Selected[i].GetName();
+                InputPlayers[i].GetComponent<PlayerSet>().ColorNum = Selected[i].GetIndex();
+                PlayerDatas[i] = InputPlayers[i].GetComponent<PlayerSet>();
+                PlayerDatas[i].GetComponent<Transform>().SetParent(transform);
+                //PlayersCalculates.Add(InputPlayers[i].GetComponent<Player_Cal>());
 
-    
+                PlayerCount++;
+
+            }
+        }
+    }
+    private void Awake()
+    {
+        InitPlayerMgr();
+    }
     public void ResetPlayerMgr()
     {
         for (int i = 0; i < PlayerCount; i++)
@@ -148,5 +175,17 @@ public class PlayerManager
                 PlayerDatas[i].CALLMENU = GameManager.GM.GamePauseflg;
             }
         }
+    }
+    public GameObject FindPlayer(GameObject obj)
+    {
+        for(int i = 0; i < PlayerDatas.Length; i++)
+        {
+            if(PlayerDatas[i].gameObject.transform.GetChild(1).GetChild(0).gameObject == obj)
+            {
+                return PlayerDatas[i].gameObject;
+            }
+        }
+        Debug.Log("Can't find gameObject");
+        return null;
     }
 }

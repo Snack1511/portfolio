@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
     public bool GamePauseflg;
-    public static SelectData[] Selected = new SelectData[4];//플레이어 정보 담는 데이터
+    //public static SelectData[] Selected = new SelectData[4];//플레이어 정보 담는 데이터
     RoomManager RoomMgr;
     public RoomManager ROOMMGR
     {
@@ -17,15 +17,25 @@ public class GameManager : MonoBehaviour
             
             return RoomMgr;
         }
+        set
+        {
+            RoomMgr = value;
+        }
     }
-    
+    public SelectData[] Selected
+    {
+        get { return ROOMMGR.Selected; }
+    }
     public RoundManager ROUNDMGR
     {
-        get { return ROOMMGR.ROUNDMGR; }
+        get { return RoomMgr.ROUNDMGR; }
+        
     }
     public PlayerManager PMGR
     {
-        get { return ROUNDMGR.PMGR; }
+        get {
+            Debug.Log(gameObject + ", " + RoomMgr);
+            return RoomMgr.PMGR; }
     }
     
 
@@ -44,7 +54,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        GM = this;
+        
         GamePauseflg = true;
         /*if (!Selected[0].IsActive())
         {
@@ -67,11 +77,12 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
+        Debug.Log("GameMgr Awake");
         InitGameMgr();
+        GM = this;
     }
     void Start()
     {
-        
         //RoundMgr.RoundStart();
         //StartCoroutine("ResetValues", RoomMgr.ROUNDMGR);
         //이거도 룸메니저에서 돌리는거 생각해 봐야함
@@ -79,11 +90,14 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
+        if(GM.GamePauseflg != GamePauseflg)
+        {
+            GamePauseflg = GM.GamePauseflg;
+        }
         
-        
-    }*/
+    }
     /*void LateUpdate()
     {
 

@@ -20,6 +20,7 @@ public class Dash_ScriptAnim : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<Player_AnimControl>().control.bAnim_Dashflg = false;
+        animator.GetComponent<Player_AnimControl>().control.bDashflg = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

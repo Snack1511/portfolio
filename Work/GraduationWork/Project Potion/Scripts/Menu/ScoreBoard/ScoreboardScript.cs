@@ -10,13 +10,17 @@ public class ScoreboardScript : MonoBehaviour
     public float PixelMultiple = 2.5f;
     public bool bPlayEnd;
     Vector3 HeightMoveValue;
-    GameManager Gm;
+    UIManager UIMgr;
     private void Awake()
+    {
+        
+    }
+    public void InitScoreboard(UIManager UI)
     {
         bPlayEnd = false;
         HeightMoveValue = new Vector3(0, Height + padding, 0);
-        Gm = GameManager.GM;
-        for (int i = 1; i <= Gm.ROUNDMGR.PMGR.PlayerCount; i++)
+        UIMgr = UI;
+        for (int i = 1; i <= UI.ROUNDMGR.PMGR.PlayerCount; i++)
         {
             InitScoreMeter(i);
         }//룸매니저쪽으로 받아줘야함
@@ -24,16 +28,16 @@ public class ScoreboardScript : MonoBehaviour
     private void OnEnable()
     {
         
-        if (Gm.ROUNDMGR.ReadRoundCheck)
+        if (UIMgr != null && UIMgr.ROUNDMGR.ReadRoundCheck)
         {
-            for (int i = 1; i <= Gm.PMGR.PlayerCount; i++)
+            for (int i = 1; i <= UIMgr.ROUNDMGR.PMGR.PlayerCount; i++)
             {
                 transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().SetData(
-                    Gm.ROUNDMGR.RoundNum,
-                    Gm.PMGR.ReadPlyerDatas()[i-1].GetPlayerData().DEGREE,
-                    Gm.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().POINT
+                    UIMgr.ROUNDMGR.RoundNum,
+                    UIMgr.ROUNDMGR.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().DEGREE,
+                    UIMgr.ROUNDMGR.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().POINT
                     );
-                transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().idxmax = Gm.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().POINT;
+                transform.GetChild(i).GetComponent<RectTransform>().GetChild(1).GetComponent<MedalAdd>().idxmax = UIMgr.ROUNDMGR.PMGR.ReadPlyerDatas()[i - 1].GetPlayerData().POINT;
             }
         }
     }

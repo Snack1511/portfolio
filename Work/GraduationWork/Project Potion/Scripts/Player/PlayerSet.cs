@@ -20,10 +20,12 @@ public class PlayerSet : MonoBehaviour
     Player_Cal Cal;
     Control Con;
     PlayerRender Render;
+
+    bool bCallMenu;
     public bool CALLMENU
     {
-        get { return Con.bCallMenu; }
-        set { Con.bCallMenu = value; }
+        get { return bCallMenu; }
+        set { bCallMenu = value; }
     }
 
     RoundManager RoundMgr;
@@ -58,12 +60,15 @@ public class PlayerSet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.GM.GamePauseflg != bCallMenu)
+        {
+            bCallMenu = GameManager.GM.GamePauseflg;
+        }
 
 
         //PlayerDead();
     }
-    
+
     private void OnDisable()
     {
         Debug.Log("Dead");
@@ -116,6 +121,7 @@ public class PlayerSet : MonoBehaviour
 
     public void ResetData()
     {
+        bCallMenu = GameManager.GM.GamePauseflg;
         rigid.useGravity = true;
         rigid.drag = 0;
         rigid.velocity = Vector3.zero;

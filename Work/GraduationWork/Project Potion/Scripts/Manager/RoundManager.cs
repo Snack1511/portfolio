@@ -23,6 +23,11 @@ public class RoundManager:MonoBehaviour
     {
         get { return UIMgr; }
     }
+    public bool SCORECHECK
+    {
+        get { return bScoreboardCheckflg; }
+        set { bScoreboardCheckflg = value; }
+    }
     public bool ReadRoundCheck
     {
         get { return bRoundCheckflg; }
@@ -33,10 +38,13 @@ public class RoundManager:MonoBehaviour
     }//스코어보드확인변수 읽기용 프로퍼티
 
     // Start is called before the first frame update
-
+    public void Awake()
+    {
+        InitRoundMgr();
+    }
     public void Start()
     {
-        
+        ResetRoundMgr();
         StartCoroutine("RoundChange");
         /*
          모노비해비어를 이용할 경우 필수적으로 게임 오브젝트에 할당한 후 코루틴을 동작시켜야 한다.
@@ -50,11 +58,13 @@ public class RoundManager:MonoBehaviour
         //ScoreboardPanel = Scoreboard;
         RoundNum = n;
         Gamestartflg = true;
-        PlayerMgr = new PlayerManager(Selected);
+        PlayerMgr = GenericFuncs.InitMgr<PlayerManager>("PlayerMgr").GetComponent<PlayerManager>();
+        PlayerMgr.SetManager(Selected);
+        //new PlayerManager(Selected);
         UIMgr = GenericFuncs.InitMgr<UIManager>("UIMgr").GetComponent<UIManager>();
-        InitRoundMgr();
         UIMgr.SetManager();
-        ResetRoundMgr();
+        
+        
     }//생성자를 대신해 초기화 시키는 함수
     void LateUpdate()
     {
@@ -82,12 +92,12 @@ public class RoundManager:MonoBehaviour
     */
     void InitRoundMgr()
     {
-        UIMGR.InitUIMgr();
-        for (int i = 0; i < PMGR.PlayerCount; i++)
+        //UIMGR.InitUIMgr();
+        /*for (int i = 0; i < PMGR.PlayerCount; i++)
         {
             Debug.Log("LoadPlayers" + i+1);
             DontDestroyOnLoad(PMGR.InputPlayers[i].gameObject);
-        }
+        }*/
     }
     public void ResetRoundMgr()
     {
@@ -113,7 +123,7 @@ public class RoundManager:MonoBehaviour
         }
         else bRoundCheckflg = false;
     }// 라운드 종료를 확인하는 함수
-    void ScoreboardCheck()
+    /*void ScoreboardCheck()
     {
         if (PlayerMgr.InputAnyButton())
         {
@@ -129,12 +139,12 @@ public class RoundManager:MonoBehaviour
         }
 
     }//버튼 입력시 스코어 보드 비활성화
-
+    */
     IEnumerator WaitScoreBoard()
     {
         Debug.Log("TimeCheck");
         yield return new WaitForSecondsRealtime(5.0f);
-        if (ScoreboardPanel.activeSelf && !bScoreboardCheckflg)
+        if (UIMgr.IsScoreOn() && !bScoreboardCheckflg)
         {
 
             Debug.Log("TimeOut");
@@ -153,14 +163,16 @@ public class RoundManager:MonoBehaviour
                 {
 
                     Debug.Log("Score");
-                    if (!ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(true);
-                    bScoreboardCheckflg = true;
-                    ScoreboardCheck();
+                    //if (!ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(true);
+                    UIMgr.SwitchScorePanel(bScoreboardCheckflg);
+                    //bScoreboardCheckflg = true;
+                    UIMgr.ScoreboardCheck(PlayerMgr.InputAnyButton());
                     StartCoroutine("WaitScoreBoard");
                 }
                 else
                 {
-                    if (ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(false);
+                    //if (ScoreboardPanel.activeSelf) ScoreboardPanel.SetActive(false);
+                    UIMgr.SwitchScorePanel(bScoreboardCheckflg);
                     Debug.Log("RoundChange");
                     ChangeMap();
                     ResetRoundMgr();

@@ -23,17 +23,17 @@ public class ControlGuidePanelScript : MonoBehaviour
     {
         
         var lastpos = Vector3.zero;
-        for (int i = 0; i < GameManager.Selected.Length; i++)
+        for (int i = 0; i < GameManager.GM.Selected.Length; i++)
         {
-            if (GameManager.Selected[i].GetDVName() == "XInputControllerWindows")
+            if (GameManager.GM.Selected[i].GetDVName() == "XInputControllerWindows")
             {
                 XInputCheck = true;
             }
-            else if (GameManager.Selected[i].GetDVName() == "Keyboard")
+            else if (GameManager.GM.Selected[i].GetDVName() == "Keyboard")
             {
                 KeyboardCheck = true;
             }
-            else if (GameManager.Selected[i].GetDVName() == "DualShock4GamepadHID")
+            else if (GameManager.GM.Selected[i].GetDVName() == "DualShock4GamepadHID")
             {
                 D4SCheck = true;
             }

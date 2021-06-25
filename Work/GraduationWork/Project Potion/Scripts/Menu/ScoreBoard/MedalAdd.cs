@@ -42,14 +42,17 @@ public class MedalAdd : MonoBehaviour
     }
     private void OnDisable()
     {
-        if (!Medals[idxmax - 1].GetComponent<MedalEffect>().bPlayEnd)
+        if (idxmax > 0)
         {
-            for (int i = idx; i < idxmax; i++)
+            if (!Medals[idxmax - 1].GetComponent<MedalEffect>().bPlayEnd)
             {
+                for (int i = idx; i < idxmax; i++)
+                {
 
-                Medals[i].sprite = SBscript.sprites[PlayerDegree - 1];
-                Medals[i].gameObject.SetActive(true);
-                //Medals[i - 1].GetComponent<MedalEffect>().bLoadCheck = true;
+                    Medals[i].sprite = SBscript.sprites[PlayerDegree - 1];
+                    Medals[i].gameObject.SetActive(true);
+                    //Medals[i - 1].GetComponent<MedalEffect>().bLoadCheck = true;
+                }
             }
         }
     }

@@ -13,7 +13,7 @@ public class Control : MonoBehaviour
     //bool Alterflg;
     public float fAimVal { private set; get; }
     public bool bAttackflg { private set; get; }
-    public bool bDashflg { private set; get; }
+    public bool bDashflg { set; get; }
     //public bool ThrowChargeflg { private set; get; }
     public bool bPauseflg { private set; get; }
     public Vector3 MoveVal { private set; get; }
@@ -23,7 +23,7 @@ public class Control : MonoBehaviour
     // Start is called before the first frame update
     //public float ThrowPower { private set; get; }
 
-    public bool bCallMenu;
+    
 
     public bool bHaveWeapon;
     public bool bHavePassive;
@@ -76,8 +76,6 @@ public class Control : MonoBehaviour
         AimDir = Vector3.zero;
         bAttackflg = false;
         bDashflg = false;
-        bPauseflg = false;
-        bCallMenu = GameManager.GM.GamePauseflg;
 
         bHaveWeapon = false;
         bHavePassive = false;
@@ -90,7 +88,7 @@ public class Control : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext ctx)
     {
-        if (!bPauseflg && !bCallMenu)
+        if (!bPauseflg && !script.CALLMENU)
         {
             
             bAnim_Moveflg = true;
@@ -118,7 +116,7 @@ public class Control : MonoBehaviour
     
 
     public void Attack(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !bCallMenu)
+        if (!bPauseflg && !script.CALLMENU)
         {
             bAnim_Attflg = true;
             bAttackflg = ctx.ReadValueAsButton();
@@ -126,7 +124,7 @@ public class Control : MonoBehaviour
     }
 
     public void Dash(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !bCallMenu)
+        if (!bPauseflg && !script.CALLMENU)
         {
             //Debug.Log("Dash" + " " + ctx.phase);
             DashDir = AimDir;
@@ -141,7 +139,7 @@ public class Control : MonoBehaviour
     }
 
     public void Throw(InputAction.CallbackContext ctx) {
-        if (!bPauseflg && !bCallMenu)
+        if (!bPauseflg && !script.CALLMENU)
         {
             if (bHaveWeapon)
             {
@@ -169,16 +167,14 @@ public class Control : MonoBehaviour
     }
     public void Menu(InputAction.CallbackContext ctx)
     {
-        if (bCallMenu)
+        if (script.CALLMENU)
         {
             GameManager.GM.GamePauseflg = false;
-            bCallMenu = false;
 
         }
         else
         {
             GameManager.GM.GamePauseflg = true;
-            bCallMenu = true;
         }
     }
     public void DeviceLost()
